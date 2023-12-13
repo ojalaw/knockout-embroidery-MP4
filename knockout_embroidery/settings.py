@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-d+c!0u$8o9=41-l$bwf^eh=$7hz-(6%*=b^dfn$*mur)at$f8-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://knockout-embroidery-32949738fa37.herokuapp.com/']
+ALLOWED_HOSTS = ['knockout-embroidery-32949738fa37.herokuapp.com']
 
 
 # Application definition
