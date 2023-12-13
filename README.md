@@ -1,5 +1,5 @@
-# Knockout Embroidery
-
+# Knockout Embroidery  
+This project is the development of an e-commerce web application for Knockout Embroidery, a company specializing in embroidered clothing and personalized products. The platform is designed to offer a seamless online shopping experience, showcasing a variety of embroidery items and enabling users to make purchases directly through the site.  
 
 This is Milestone Project 4 for a Level 5 Diploma in Web Application Development.    
 
