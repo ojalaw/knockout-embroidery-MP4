@@ -1,39 +1,228 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Knockout Embroidery
 
-Welcome,
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This is Milestone Project 4 for a Level 5 Diploma in Web Application Development.    
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
 
-## Codeanywhere Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+Link to live site: 
 
-`python3 -m http.server`
+## CONTENTS
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+* [User Experience](#user-experience-ux)
+  * [User Stories](#user-stories)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+* [Design](#design)
+  * [Colour Scheme](#colour-scheme)
+  * [Typography](#typography)
+  * [Layout](#layout)
+  * [Imagery](#imagery)
+  * [Wireframes](#wireframes)
+  * [Data Model](#data-model)
+  * [Security](#security)
+  * [Future Updates](#future-updates)
 
-`http_server`
+* [Features](#features)
+  * [Future Implementations](#future-implementations)
+  * [Accessibility](#accessibility)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+* [Testing](#testing)
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* [Deployment](#deployment)
 
-To log into the Heroku toolbelt CLI:
+* [Credits](#credits)
+  * [Code Used](#code-used)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgments](#acknowledgments)
+  
+  ---
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## User Experience (UX)  
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### User Stories
 
----
+**User Story 1:** 
 
-Happy coding!
+
+
+**User Story 2:** 
+
+
+
+**User Story 3:** 
+
+
+
+**User Story 4:** 
+
+
+
+## Design  
+
+### Colour Scheme
+
+
+
+### Typography
+
+
+
+### Layout
+
+
+
+### Accessibility  
+
+
+ 
+
+### Imagery  
+
+
+
+### Wireframes
+
+### Data Model  
+
+
+
+
+### Security  
+
+
+
+**Use of .env file**  
+
+
+## Features
+
+### General features  
+
+
+### Future Implementations
+
+
+## Technologies Used
+
+### Languages Used
+
+**HTML5**  
+Used for creation of markup for the website content.  
+**CSS**  
+Cascading style sheets used to style the individual pages.  
+**Javascript**  
+Used to toggle visibility of certain aspects of the site.  
+**Python**  
+Used to run the app.  
+
+
+### Frameworks, Libraries & Programs Used
+
+[Bootstrap 5.3.0](https://getbootstrap.com/)  
+Boostrap was predominantly used throughout the site for responsiveness, modals to confirm deleting posts/comments and image carousel.
+
+[CDN jsdelivr](https://www.jsdelivr.com/)  
+CDN jsdeliver was used to serve static assets bootstrap and jquery to improve performance and reliability.
+
+[Google Fonts](https://fonts.google.com/)  
+Used to import 'Ubuntu' font.  
+
+[Font awesome](https://fontawesome.com/)  
+Used to import icons on to the site to improve user experience.  
+
+[Github](https://github.com/)   
+GitHub is used to store the projects code after being pushed from Git.  
+
+[Balsamiq](https:/balsamiq.com)  
+Balsamiq was used to create the wireframes during the design process.  
+
+[Heroku](https://id.heroku.com/login)  
+Used to deploy the project.  
+
+
+[PostgreSQL](https://www.postgresql.org/)  
+Hosted the database used in my project.  
+
+[Visual Studio Code](https://code.visualstudio.com/download)  
+Visual Studio Code was use to create files pages and where i produced the code for the project.  
+
+[Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)    
+Google Chrome Dev Tools was used during the testing phase to test the responsiveness of the site and to check for any bugs.
+
+
+ 
+[W3schools](https://www.w3schools.com/)    
+W3schools was used as a guide for HTML, CSS and Python basic principles.  
+
+
+## Testing 
+
+
+
+## Deployment
+
+**How was this site deployed?**
+
+The website was initially deployed on Heroku.
+
+**Deploying on Heroku**  
+The following steps will need to be taken to deploy the application using Heroku.
+
+- Create a requirements.txt file.  
+- Create a Procfile by typing echo web: python app.py > Procfile. Ensure it starts with a capital P.  
+- Go to Heroku. Log in or create an account.  
+- Click the 'New' button and click 'Create new app'.  
+- Enter a unique name for your project with no capital letters or spaces and select your region. Click 'Create App'.  
+- Inside your project, go to the Resources tab and create a Heroku Postgres Database.  
+- Inside your project, go to the 'Settings' tab. Scroll down and click 'Reveal Config Vars'.  
+- Add in the following variables.
+   - SECRET_KEY : Your secret key
+   - DATABASE_URL: your postgres database URL
+- Deploy your project by going to the Deploy tab and choose 'Connect to Github'
+- Find your repository name and select Connect.
+
+**Create a new repository on GitHub**  
+- Add the necessary files to the repository.
+- Go to the settings page of the repository, located on the menu bar towards the top of the page, scroll down to the GitHub Pages section which is located at the bottom of the 'Code and automation' sub-section.
+- Select the main branch and the root folder, then click save.
+- The website will now be live at the URL provided in the GitHub Pages section.
+
+**How to clone the repository**
+
+- Go to the (https://github.com/ojalaw/suport_MP3)  repository on GitHub.
+- Click the "Code" button to the right of the screen, click HTTPs and copy the link there.
+- Open a GitBash terminal and navigate to the directory where you want to locate the clone.
+- On the command line, type "git clone" then paste in the copied url and press the Enter key to begin the clone process.  
+
+**How to Fork the repository**  
+
+- Go to the https://github.com/ojalaw/suport_MP3 repository on GitHub.
+- Click on the 'Fork' option towards the top left of the page.  
+- Click the dropdown button and click 'create a new fork'.  
+- This will bring up a page with details of the repository, fill in boxes as required.
+- Click 'create fork'.  
+
+For further guidance [click here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)  
+
+Forking this repository will allow changes to be made without affecting the original repository.
+
+## Credits
+
+### Code Used
+
+
+### Content
+
+
+###  Media
+
+**Images**  
+
+  
+###  Acknowledgments
+ 
