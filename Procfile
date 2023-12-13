@@ -1,1 +1,1 @@
-web: gunicorn knockout-embroidery.wsgi
+web: gunicorn knockout_embroidery.wsgi
