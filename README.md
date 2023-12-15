@@ -47,20 +47,16 @@ Link to live site:
 ### User Stories
 
 **User Story 1:** 
-
-
+First time customer - I want to easily navigate the website and understand the services offered, So that I can find the embroidery products I need without confusion and make my first purchase smoothly.  
 
 **User Story 2:** 
-
-
+Returning customer - I want to log in to my account and view my previous orders, So that I can reorder products I liked or track the status of my current orders.  
 
 **User Story 3:** 
-
-
+Embroidery collector - I want to be able to search and filter products based on specific criteria like material, style, and artist, So that I can find unique and high-quality pieces to add to my collection.  
 
 **User Story 4:** 
-
-
+Business owner - I want to be able to place bulk orders and customize products with my company’s branding, So that I can efficiently acquire uniform embroidery that represents my company’s identity.  
 
 ## Design  
 
