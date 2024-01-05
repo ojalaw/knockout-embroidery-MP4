@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from home.views import home
 from product.views import product, review
+from users.views import profile
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -28,4 +29,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('products/', product, name='product'),
     path('reviews/', review, name='review'),
+    path('profile/', profile, name='profile'),
 ]

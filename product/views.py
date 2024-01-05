@@ -7,4 +7,4 @@ def product(request):
 
 def review(request):
     reviews = Review.objects.all()
-    return render(request, 'product/review.html', {'reviews': reviews})
+    return render(request, 'product/reviews.html', {'reviews': reviews})
