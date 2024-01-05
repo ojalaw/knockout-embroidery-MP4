@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from .models import Product, Review
 
-# Create your views here.
+def product(request):
+    products = Product.objects.all()
+    return render(request, 'product/product.html', {'products': products})
+
+def review(request):
+    reviews = Review.objects.all()
+    return render(request, 'product/review.html', {'reviews': reviews})
