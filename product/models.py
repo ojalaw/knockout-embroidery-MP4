@@ -9,7 +9,6 @@ class Product(models.Model):
     stock = models.IntegerField()
     available = models.BooleanField(default=True)
     image = models.ImageField(upload_to='product_images')
-    category = models.ForeignKey('Category', related_name='products', on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
         return self.name
