@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-   <h1>Product</h1>
+<h1>Our Products</h1>
+<div class="products">
+    {% for product in products %}
+    <div class="product">
+        <h2>{{ product.name }}</h2>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <p>Size: {{ product.size }}</p>
+        <p>Colour: {{ product.colour }}</p>
+        {% if product.available %}
+        <p>In stock</p>
+        {% else %}
+        <p>Out of stock</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
