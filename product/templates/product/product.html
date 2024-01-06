@@ -13,10 +13,12 @@
         <p>Colour: {{ product.colour }}</p>
         {% if product.available %}
         <p>In stock</p>
+        <input type="number" id="quantity_{{ product.id }}" value="1" min="1">
+        <button onclick="addToBasket({{ product.id }})">Add to Basket</button>
         {% else %}
         <p>Out of stock</p>
         {% endif %}
     </div>
     {% endfor %}
 </div>
-{% endblock %}
+{% endblock %} 
