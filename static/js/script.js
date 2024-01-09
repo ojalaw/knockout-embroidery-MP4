@@ -1,4 +1,5 @@
 function addToBasket(productId) {
+    console.log('clicked!')
     var quantity = document.getElementById(`quantity_${productId}`).value;
     $.ajax({
         url: `/add_to_basket/${productId}/`,
@@ -12,5 +13,6 @@ function addToBasket(productId) {
                 alert(response.message);
             }
         }
+         
     });
 }

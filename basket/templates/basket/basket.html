@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
-{% load math_filters %}
+
 {% block content %}
-<h1>Basket</h1>
-<div>
-    {% for item in basket_items %}
-    <div class="basket-item">
-        <p>Product: {{ item.product.name }}</p>
-        <p>Price: {{ item.product.price }}</p>
-        <p>Quantity: {{ item.quantity }}</p>
-        <p>Total Price: {{ item.product.price|multiply:item.quantity }}</p>
-    </div>
-    {% endfor %}
-</div>
+
+<h2>Basket Items</h2>
+
+{% for item in items %}
+
+  <p>{{ item.product.name }}</p>
+
+{% empty %}
+
+  <p>No items in basket</p>
+
+{% endfor %}
+
 {% endblock %}

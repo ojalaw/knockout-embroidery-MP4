@@ -19,7 +19,7 @@ from django.urls import path, include
 from home.views import home
 from product.views import product, review
 from users.views import profile
-from basket.views import add_to_basket, remove_from_basket, basket_detail
+from basket.views import add_to_basket, basket_detail
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -32,6 +32,5 @@ urlpatterns = [
     path('reviews/', review, name='review'),
     path('profile/', profile, name='profile'),
     path('add/<int:product_id>/', add_to_basket, name='add_to_basket'),
-    path('remove/<int:basket_item_id>/', remove_from_basket, name='remove_from_basket'),
     path('basket/', basket_detail, name='basket_detail'),
 ]
