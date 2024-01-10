@@ -2,16 +2,18 @@
 
 {% block content %}
 
+{% load math_filters %}
+
 <h2>Basket Items</h2>
 
-{% for item in items %}
-
-  <p>{{ item.product.name }}</p>
-
+{% for item in basket_items %}
+   {{ item }}
 {% empty %}
-
-  <p>No items in basket</p>
-
+   Basket is empty
 {% endfor %}
+ 
+<p>Items: {{ basket_items|length }}</p>
 
-{% endblock %}
+Total: ${{ total }}
+
+{% endblock %} 

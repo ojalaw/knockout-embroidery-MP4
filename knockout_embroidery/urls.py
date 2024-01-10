@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from home.views import home
-from product.views import product, review
+from product.views import products, product_detail, review
 from users.views import profile
 from basket.views import add_to_basket, basket_detail
 from django.contrib.auth import views as auth_views
@@ -28,7 +28,8 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('products/', product, name='product'),
+    path('products', products, name='products'),
+    path('<product_id>', product_detail, name='product_detail'),
     path('reviews/', review, name='review'),
     path('profile/', profile, name='profile'),
     path('add/<int:product_id>/', add_to_basket, name='add_to_basket'),

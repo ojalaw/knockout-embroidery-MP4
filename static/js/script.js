@@ -1,18 +1,31 @@
+
+var basketCount = 0;
+
 function addToBasket(productId) {
-    console.log('clicked!')
-    var quantity = document.getElementById(`quantity_${productId}`).value;
-    $.ajax({
-        url: `/add_to_basket/${productId}/`,
-        type: 'POST',
-        data: {
-            'csrfmiddlewaretoken': document.getElementsByName('csrfmiddlewaretoken')[0].value,
-            'quantity': quantity
-        },
-        success: function(response) {
-            if (response.success) {
-                alert(response.message);
-            }
-        }
-         
-    });
+
+  $.ajax({
+    url: '/basket/add/' + productId +'/',
+    type: 'POST',
+    success: function() {
+      basketCount += 1; 
+      
+      $('#basket-count').text(basketCount); 
+
+      showAlert('Added to basket!');
+    }
+  });
+
 }
+
+$('.remove-button').click(function() {
+
+    var itemId = $(this).data('id')
+  
+    $.ajax({
+      url: '/basket/remove/' + itemId + '/', 
+      success: function() {
+        
+      }
+    })
+  
+  })

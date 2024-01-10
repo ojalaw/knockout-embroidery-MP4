@@ -1,0 +1,80 @@
+[{"model": "product.product", "pk": 1, "fields": {"name": "T-shirt", "description": "Basic T-shirt", "colour": "Black", "price": "10.00", "size": "M", "stock": 1, "available": true, "image":"media/website-mockup.png"}},
+    {
+      "model": "product.product",
+      "pk": 2,
+      "fields": {
+        "name": "T-shirt",
+        "description": "Basic T-shirt",
+        "price": "10.00",
+        "size": "M",
+        "stock": 1,
+        "available": true,
+        "image": "media/website-mockup.png"
+      }
+    },
+    {
+      "model": "product.product",
+      "pk": 3,
+      "fields": {
+        "name": "Polo Shirt",
+        "description": "Comfortable polo shirt",
+        "price": "24.99",
+        "size": "L",
+        "stock": 30,
+        "available": true,
+        "image": "media/website-mockup.png"
+      }
+    },
+    {
+      "model": "product.product",
+      "pk": 4,
+      "fields": {
+        "name": "Hoodie",
+        "description": "Warm and cozy hoodie",
+        "price": "39.99",
+        "size": "XL",
+        "stock": 20,
+        "available": true,
+        "image": "media/website-mockup.png"
+      }
+    },
+    {
+      "model": "product.product",
+      "pk": 5,
+      "fields": {
+        "name": "Jumper",
+        "description": "Soft wool jumper",
+        "price": "34.99",
+        "size": "M",
+        "stock": 25,
+        "available": true,
+        "image": "media/website-mockup.png"
+      }
+    },
+    {
+      "model": "product.product",
+      "pk": 6,
+      "fields": {
+        "name": "Shorts",
+        "description": "Lightweight shorts",
+        "price": "14.99",
+        "size": "L",
+        "stock": 40,
+        "available": true,
+        "image": "media/website-mockup.png"
+      }
+    },
+    {
+      "model": "product.product",
+      "pk": 7,
+      "fields": {
+        "name": "Hat",
+        "description": "Stylish sun hat",
+        "price": "9.99",
+        "size": "One Size",
+        "stock": 60,
+        "available": true,
+        "image": "media/website-mockup.png"
+      }
+    }
+  ]
