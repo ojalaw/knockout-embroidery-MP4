@@ -19,12 +19,12 @@ from django.urls import path, include
 from home.views import home
 from product.views import products, product_detail, review
 from users.views import profile
-from basket.views import add_to_basket, basket_detail
+from basket.views import add_to_basket, view_basket
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
+    path('home', home, name='home'),
     path('users/', include('users.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
@@ -32,6 +32,6 @@ urlpatterns = [
     path('<product_id>', product_detail, name='product_detail'),
     path('reviews/', review, name='review'),
     path('profile/', profile, name='profile'),
-    path('add/<int:product_id>/', add_to_basket, name='add_to_basket'),
-    path('basket/', basket_detail, name='basket_detail'),
+    path('', view_basket, name='view_basket'),
+    path('add/<item_id>/', add_to_basket, name='add_to_basket'),
 ]

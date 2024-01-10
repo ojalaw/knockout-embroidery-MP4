@@ -1,49 +1,24 @@
-from django.shortcuts import render, redirect  
-from django.http import HttpResponse
-from .models import BasketItem  
-from product.models import Product
+from django.shortcuts import render, redirect
 
-def basket_detail(request):
+# Create your views here.
 
-    items = BasketItem.objects.filter(user=request.user)
-    context = {'items': items}
-    return render(request, 'basket/basket.html', context)
+def view_basket(request):
+    """ A view that renders the basket contents page """
 
+    return render(request, 'basket/basket.html')
 
-def add_to_basket(request):
-    
-    product_id = request.POST['product_id']
-    quantity = request.POST['quantity']
-    
-    product = Product.objects.get(pk=product_id)
-    
-    item, created = BasketItem.objects.get_or_create(
-        product=product, 
-        user=request.user, 
-        defaults={'quantity': quantity}
-    )
+def add_to_basket(request, item_id):
+    """ Add a quantity of the specified product to the shopping basket """
 
-    if not created:
-        item.quantity += quantity
-        item.save() 
-        
-    return redirect('product_detail', product.id)
+    quantity = int(request.POST.get('quantity'))
+    redirect_url = request.POST.get('redirect_url')
+    basket = request.session.get('basket', {})
 
-def remove_from_basket(request, item_id):
-   
-    item = BasketItem.objects.get(pk=item_id)
-    item.delete()
-    
-    return HttpResponse(status=200)
-    
-def basket_summary(request):
-    
-    items = BasketItem.objects.filter(user=request.user)
-    total = sum(item.quantity * item.product.price for item in items)
-    
-    context = {
-       'items': items,
-       'total': total
-    }
-    
-    return render(request, 'basket/basket.html', context)
+    if item_id in list(basket.keys()):
+        basket[item_id] += quantity
+    else:
+        basket[item_id] = quantity
+
+    request.session['basket'] = basket
+    print(request.session['basket'])
+    return redirect(redirect_url)
