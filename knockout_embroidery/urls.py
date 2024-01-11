@@ -21,6 +21,8 @@ from product.views import products, product_detail, review
 from users.views import profile
 from basket.views import add_to_basket, view_basket
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,9 +31,12 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('products', products, name='products'),
-    path('<product_id>', product_detail, name='product_detail'),
+    path('products/<int:product_id>/', product_detail, name='product_detail'),
     path('reviews/', review, name='review'),
     path('profile/', profile, name='profile'),
     path('basket/', view_basket, name='view_basket'),
     path('add/<item_id>/', add_to_basket, name='add_to_basket'),
-]
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

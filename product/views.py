@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.http import Http404
 from django.db.models import Q
 from .models import Product, Review
 
@@ -33,10 +32,6 @@ def products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual product details """
-    
-      
-    if not str(product_id).isnumeric():
-     raise Http404('Invalid product id')
 
     product = get_object_or_404(Product, pk=product_id)
 
