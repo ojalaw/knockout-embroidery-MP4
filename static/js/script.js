@@ -1,4 +1,3 @@
-
 var basketCount = 0;
 
 function addToBasket(productId) {
