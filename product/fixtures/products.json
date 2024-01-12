@@ -1,7 +1,7 @@
-[{"model": "product.product", "pk": 1, "fields": {"name": "T-shirt", "description": "Basic T-shirt", "colour": "Black", "price": "10.00", "size": "M", "stock": 1, "available": true, "image":"media/website-mockup.png"}},
+[
     {
       "model": "product.product",
-      "pk": 2,
+      "pk": 1,
       "fields": {
         "name": "T-shirt",
         "description": "Basic T-shirt",
@@ -9,12 +9,12 @@
         "size": "M",
         "stock": 1,
         "available": true,
-        "image": "media/website-mockup.png"
+        "image": "media/t-shirt.jpg"
       }
     },
     {
       "model": "product.product",
-      "pk": 3,
+      "pk": 2,
       "fields": {
         "name": "Polo Shirt",
         "description": "Comfortable polo shirt",
@@ -27,7 +27,7 @@
     },
     {
       "model": "product.product",
-      "pk": 4,
+      "pk": 3,
       "fields": {
         "name": "Hoodie",
         "description": "Warm and cozy hoodie",
@@ -40,7 +40,7 @@
     },
     {
       "model": "product.product",
-      "pk": 5,
+      "pk": 4,
       "fields": {
         "name": "Jumper",
         "description": "Soft wool jumper",
@@ -53,7 +53,7 @@
     },
     {
       "model": "product.product",
-      "pk": 6,
+      "pk": 5,
       "fields": {
         "name": "Shorts",
         "description": "Lightweight shorts",
@@ -66,7 +66,7 @@
     },
     {
       "model": "product.product",
-      "pk": 7,
+      "pk": 6,
       "fields": {
         "name": "Hat",
         "description": "Stylish sun hat",
