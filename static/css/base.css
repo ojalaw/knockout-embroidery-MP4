@@ -69,6 +69,14 @@ body {
     font-size: 3rem;
 }
 
+/*---images---*/
+
+.product-image {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+}
+
 /*---socials-footer---*/
 /*---Atheros code inspired by atheros---*/
 
