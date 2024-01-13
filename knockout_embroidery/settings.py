@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'temporarykey')
   
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['knockout-embroidery-32949738fa37.herokuapp.com', '127.0.0.1']
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'users',
     'product',
     'basket',
+    'checkout',
 ]
 
 MIDDLEWARE = [
