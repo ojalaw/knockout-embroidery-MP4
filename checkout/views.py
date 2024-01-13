@@ -12,9 +12,9 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    bag = request.session.get('bag', {})
-    if not bag:
-        messages.error(request, "There's nothing in your bag at the moment")
+    basket = request.session.get('basket', {})
+    if not basket:
+        messages.error(request, "There's nothing in your basket at the moment")
         return redirect(reverse('products'))
 
     current_basket = basket_contents(request)
