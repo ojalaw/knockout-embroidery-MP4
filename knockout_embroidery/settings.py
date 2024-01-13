@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'temporarykey')
   
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['knockout-embroidery-32949738fa37.herokuapp.com', '127.0.0.1']
 
@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'product',
     'basket',
     'checkout',
+    
+     # Other
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +67,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'knockout_embroidery.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -78,6 +83,10 @@ TEMPLATES = [
                 'django.template.context_processors.csrf',
                 'basket.contexts.basket_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
