@@ -16,19 +16,6 @@ function addToBasket(productId) {
 
 }
 
-$('.remove-button').click(function() {
-
-    var itemId = $(this).data('id')
-  
-    $.ajax({
-      url: '/basket/remove/' + itemId + '/', 
-      success: function() {
-        
-      }
-    })
-  
-  })
-
   
     // Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId) {
