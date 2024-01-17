@@ -4,21 +4,38 @@ from django.shortcuts import get_object_or_404
 from product.models import Product
 
 def basket_contents(request):
-
     basket_items = []
     total = 0
     product_count = 0
-    bag = request.session.get('basket', {})
+    basket = request.session.get('basket', {})
 
-    for item_id, quantity in bag.items():
+    for item_id, item_data in basket.items():
         product = get_object_or_404(Product, pk=item_id)
-        total += quantity * product.price
-        product_count += quantity
-        basket_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-        })
+
+        if isinstance(item_data, dict):
+            for size, quantity in item_data.get('items_by_size', {}).items():
+                subtotal = quantity * product.price
+                total += subtotal
+                product_count += quantity
+                basket_items.append({
+                    'item_id': item_id,
+                    'quantity': quantity,
+                    'product': product,
+                    'size': size,
+                    'subtotal': subtotal,
+                })
+        else:
+            quantity = item_data
+            subtotal = quantity * product.price
+            total += subtotal
+            product_count += quantity
+            basket_items.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+                'size': None,
+                'subtotal': subtotal,
+            })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -26,9 +43,9 @@ def basket_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+
     grand_total = delivery + total
-    
+
     context = {
         'basket_items': basket_items,
         'total': total,

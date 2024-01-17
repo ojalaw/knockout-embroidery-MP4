@@ -11,46 +11,59 @@ def view_basket(request):
 
 def add_to_basket(request, item_id):
     """ Add a quantity of the specified product to the shopping basket """
+    basket = request.session.get('basket', {})
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
+    size = request.POST.get('product_size', product.size)
     redirect_url = request.POST.get('redirect_url')
     basket = request.session.get('basket', {})
 
-    if item_id in list(basket.keys()):
-        basket[item_id] += quantity
-        messages.success(request, f'Updated {product.name} quantity to {basket[item_id]}')
+    if item_id in basket:
+        if size in basket[item_id]['items_by_size']:
+            basket[item_id]['items_by_size'][size] += quantity  
+        else:
+            basket[item_id]['items_by_size'][size] = quantity   
     else:
-        basket[item_id] = quantity
-        messages.success(request, f'Added {product.name} to your basket')
+        basket[item_id] = {
+            'items_by_size': {
+                size: quantity
+            }
+        }
 
+    messages.success(request, 'Added to basket')
+        
     request.session['basket'] = basket
-    print(request.session['basket'])
     return redirect(redirect_url)
 
 def adjust_basket(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
 
     quantity = int(request.POST.get('quantity'))
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    size = request.POST.get('product_size')
     basket = request.session.get('basket', {})
 
-    if size:
-        if quantity > 0:
-            basket[item_id]['items_by_size'][size] = quantity
+    if item_id in basket:
+        if size in basket[item_id]['items_by_size']:
+            if quantity >= 1:
+                basket[item_id]['items_by_size'][size] = quantity
+            else:
+                del basket[item_id]['items_by_size'][size]
+                if not basket[item_id]['items_by_size']:
+                    del basket[item_id]
+        elif size:
+            if quantity >= 1:
+                basket[item_id]['items_by_size'][size] = quantity
+            else:
+                del basket[item_id]
         else:
-            del basket[item_id]['items_by_size'][size]
-            if not basket[item_id]['items_by_size']:
-                basket.pop(item_id)
+            messages.error(request, "Size information missing for the item.")
     else:
-        if quantity > 0:
-            basket[item_id] = quantity
-        else:
-            basket.pop(item_id)
+        messages.error(request, "Item not found in basket.")
 
     request.session['basket'] = basket
+    messages.success(request, 'Basket updated successfully.')
+
     return redirect(reverse('view_basket'))
 
 def remove_from_basket(request, item_id):
