@@ -40,16 +40,3 @@ console.log('Script loaded')
      var itemId = $(this).data('item_id');
      handleEnableDisable(itemId);
   });
-
-  $('.btt-link').click(function(e) {
-    window.scrollTo(0,0)
-  })
-
-  $('.toast').toast('show');
-
-  $('.btn').click(function(e) {
-    e.preventDefault();
-    console.log('Clicked!');
-  
-    return false;
-  })

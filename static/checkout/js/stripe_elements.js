@@ -6,12 +6,10 @@
     https://stripe.com/docs/stripe-js
 */
 
-var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripePublicKey);
-const elements = stripe.elements({ clientSecret, appearance });
-const paymentElement = elements.create('payment', options);
-paymentElement.mount('#card-element');
+var stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
+var client_secret = $('#id_client_secret').text().slice(1, -1);
+var stripe = Stripe('pk_test_51OY7Y4Kj61YyQ9SVZdbHZ61toWUHRyHWgtt9Rpgsww9UJ1g3bPFRWJqM65Itzj98oJptgo1FDSSk0CgeDS1VwZwT00UGUYifbb');
+var elements = stripe.elements();
 var style = {
     base: {
         color: '#000',
