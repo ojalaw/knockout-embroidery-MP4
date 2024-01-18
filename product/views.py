@@ -1,11 +1,21 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from .models import Product, Review
+from .forms import ReviewForm
 
 def review(request):
-    reviews = Review.objects.all()
-    return render(request, 'product/reviews.html', {'reviews': reviews})
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redirect or show a success message
+            return redirect('reviews')
+    else:
+        form = ReviewForm()
+
+    return render(request, 'product/reviews.html', {'form': form})
 
 def products(request):
     """ A view to show all products, including sorting and search queries """
@@ -40,3 +50,8 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'product/product_detail.html', context)
+
+def product_reviews(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(product=product)
+    return render(request, 'product/reviews.html', {'reviews': reviews, 'product': product})

@@ -43,6 +43,7 @@ urlpatterns = [
     path('checkout/', checkout, name='checkout'),
     path('checkout_success/<order_number>', checkout_success, name='checkout_success'),
     path('checkout/wh/', webhook, name='webhook'),
+    path('reviews/', review, name='review'),
 ] 
 
 if settings.DEBUG:
