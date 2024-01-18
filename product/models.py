@@ -22,6 +22,7 @@ class Product(models.Model):
 
     name = models.CharField(max_length=100)
     description = models.TextField()
+    sku = models.CharField(max_length=100, null=True, blank=True)
     colour = models.CharField(max_length=30, choices=COLOUR_CHOICES, default='not specified')
     price = models.DecimalField(max_digits=6, decimal_places=2)
     size = models.CharField(max_length=10, choices=SIZE_CHOICES, default='M')
