@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from home.views import home
-from product.views import products, product_detail, review, add_product
+from product.views import products, product_detail, review, add_product, edit_product, delete_product
 from users.views import profile, order_history
 from basket.views import add_to_basket, view_basket, adjust_basket, remove_from_basket
 from checkout.views import checkout, checkout_success
@@ -46,6 +46,8 @@ urlpatterns = [
     path('reviews/', review, name='review'),
     path('order_history/<order_number>/', order_history, name='order_history'),
     path('add_product/', add_product, name='add_product'),
+    path('edit/<int:product_id>/', edit_product, name='edit_product'),
+    path('delete/<int:product_id>/', delete_product, name='delete_product'),
 ] 
 
 if settings.DEBUG:
