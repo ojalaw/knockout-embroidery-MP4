@@ -42,7 +42,7 @@ urlpatterns = [
     path('basket/remove/<item_id>/', remove_from_basket, name='remove_from_basket'),
     path('checkout/', checkout, name='checkout'),
     path('checkout_success/<order_number>', checkout_success, name='checkout_success'),
-    path('checkout/wh/', webhook, name='webhook'),
+    path('wh/', webhook, name='webhook'),
     path('reviews/', review, name='review'),
 ] 
 

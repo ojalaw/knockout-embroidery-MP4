@@ -3,6 +3,7 @@ certifi==2023.11.17
 charset-normalizer==3.3.2
 dj-database-url==2.1.0
 Django==5.0
+django-countries==7.5.1
 django-crispy-forms==1.14.0
 gunicorn==21.2.0
 idna==3.6

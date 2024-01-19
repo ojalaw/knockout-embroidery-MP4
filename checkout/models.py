@@ -3,15 +3,22 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+
+from django_countries.fields import CountryField
+
+
 from product.models import Product
+from users.models import Profile
 
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    profile = models.ForeignKey(Profile, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
+    country = models.CharField(max_length=200,  null=True, choices=CountryField().choices + [('', 'Select Country')])
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
