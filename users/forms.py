@@ -6,35 +6,26 @@ from .models import Profile
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
+    default_phone_number = forms.CharField(required=False)
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
-        
-    
+        fields = ['username', 'email', 'default_phone_number', 'password1', 'password2']
+
     def __init__(self, *args, **kwargs):
-        """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
-        """
         super().__init__(*args, **kwargs)
         placeholders = {
+            'username': 'Username',
+            'email': 'Email Address',
             'default_phone_number': 'Phone Number',
-            'default_postcode': 'Postal Code',
-            'default_town_or_city': 'Town or City',
-            'default_street_address1': 'Street Address 1',
-            'default_street_address2': 'Street Address 2',
-            'default_county': 'County, State or Locality',
+            'password1': 'Password',
+            'password2': 'Confirm Password',
+            # Include other fields if necessary
         }
 
-        self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'default_country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
+            if field in placeholders:
+                self.fields[field].widget.attrs['placeholder'] = placeholders[field]
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].label = False
             

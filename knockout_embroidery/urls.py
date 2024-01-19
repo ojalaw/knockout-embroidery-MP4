@@ -17,8 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from home.views import home
-from product.views import products, product_detail, review
-from users.views import profile
+from product.views import products, product_detail, review, add_product
+from users.views import profile, order_history
 from basket.views import add_to_basket, view_basket, adjust_basket, remove_from_basket
 from checkout.views import checkout, checkout_success
 from checkout.webhook import webhook
@@ -44,6 +44,8 @@ urlpatterns = [
     path('checkout_success/<order_number>', checkout_success, name='checkout_success'),
     path('wh/', webhook, name='webhook'),
     path('reviews/', review, name='review'),
+    path('order_history/<order_number>/', order_history, name='order_history'),
+    path('add_product/', add_product, name='add_product'),
 ] 
 
 if settings.DEBUG:

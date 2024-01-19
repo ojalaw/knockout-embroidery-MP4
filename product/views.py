@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Product, Review
-from .forms import ReviewForm
+from .forms import ReviewForm, ProductForm
 
 def review(request):
     if request.method == 'POST':
@@ -55,3 +55,13 @@ def product_reviews(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
     return render(request, 'product/reviews.html', {'reviews': reviews, 'product': product})
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'product/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
