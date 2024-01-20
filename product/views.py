@@ -5,17 +5,27 @@ from django.contrib.auth.decorators import login_required
 from .models import Product, Review
 from .forms import ReviewForm, ProductForm
 
-def review(request):
+@login_required
+def review(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            form.save()
-            # Redirect or show a success message
+            review = form.save(commit=False)
+            review.user = request.user
+            review.product = product
+            review.save()
+            messages.success(request, 'Your review has been added!')
             return redirect('reviews')
     else:
         form = ReviewForm()
 
-    return render(request, 'product/reviews.html', {'form': form})
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, 'product/reviews.html', context)
 
 def products(request):
     """ A view to show all products, including sorting and search queries """

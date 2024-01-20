@@ -6,4 +6,15 @@
         {{ form.as_p }}
         <button type="submit">Submit Review</button>
     </form>
+
+    <h3>Reviews</h3>
+    {% for review in reviews %}
+        <div>
+            <p><strong>User:</strong> {{ review.user.username }}</p>
+            <p><strong>Rating:</strong> {{ review.rating }}</p> <!-- Replace with star display -->
+            <p><strong>Comment:</strong> {{ review.comment }}</p>
+        </div>
+    {% empty %}
+        <p>No reviews yet.</p>
+    {% endfor %}
 {% endblock %}
