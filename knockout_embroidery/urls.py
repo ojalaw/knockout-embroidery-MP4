@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from home.views import home
-from product.views import products, product_detail, review, add_product, edit_product, delete_product
+from product.views import products, product_detail, reviews, add_review, add_product, edit_product, delete_product
 from users.views import profile, order_history
 from basket.views import add_to_basket, view_basket, adjust_basket, remove_from_basket
 from checkout.views import checkout, checkout_success
@@ -32,9 +32,10 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('products', products, name='products'),
+    path('products/', products, name='products'),
     path('products/<int:product_id>/', product_detail, name='product_detail'),
-    path('reviews/', review, name='review'),
+    path('product/reviews/', reviews, name='reviews'),
+    path('review/add/<int:product_id>/', add_review, name='add_review'),
     path('profile/', profile, name='profile'),
     path('basket/', view_basket, name='view_basket'),
     path('add/<item_id>/', add_to_basket, name='add_to_basket'),
@@ -43,7 +44,6 @@ urlpatterns = [
     path('checkout/', checkout, name='checkout'),
     path('checkout_success/<order_number>', checkout_success, name='checkout_success'),
     path('wh/', webhook, name='webhook'),
-    path('reviews/', review, name='review'),
     path('order_history/<order_number>/', order_history, name='order_history'),
     path('add_product/', add_product, name='add_product'),
     path('edit/<int:product_id>/', edit_product, name='edit_product'),

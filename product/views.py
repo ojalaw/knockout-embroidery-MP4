@@ -5,8 +5,17 @@ from django.contrib.auth.decorators import login_required
 from .models import Product, Review
 from .forms import ReviewForm, ProductForm
 
+def reviews(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(product=product)
+    all_reviews = Review.objects.all() 
+    context = {
+        'reviews': all_reviews,
+    }
+    return render(request, 'product/reviews.html', context)
+
 @login_required
-def review(request, product_id):
+def add_review(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -16,7 +25,7 @@ def review(request, product_id):
             review.product = product
             review.save()
             messages.success(request, 'Your review has been added!')
-            return redirect('reviews')
+            return redirect('reviews', product_id=product_id)
     else:
         form = ReviewForm()
 
@@ -24,8 +33,7 @@ def review(request, product_id):
         'form': form,
         'product': product,
     }
-
-    return render(request, 'product/reviews.html', context)
+    return render(request, 'product/add_review.html', context)
 
 def products(request):
     """ A view to show all products, including sorting and search queries """
