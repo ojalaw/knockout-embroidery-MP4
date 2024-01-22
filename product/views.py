@@ -14,6 +14,7 @@ def reviews(request):
 
 @login_required
 def add_review(request):
+    request.session['show_basket_in_toast'] = False
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():

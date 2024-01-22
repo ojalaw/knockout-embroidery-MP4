@@ -32,6 +32,13 @@ body {
     width: 100%;
 }
 
+/*---logo---*/
+
+.logo {
+    height: 50px;
+    margin-right: 10px; 
+  }
+
 /*---toast-messages---*/
 
 .message-container {
@@ -68,6 +75,32 @@ body {
 .navbar-brand {
     font-size: 3rem;
 }
+
+/*---images---*/
+
+.product-image {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+}
+
+/*---toasts---*/
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 
 /*---socials-footer---*/
 /*---Atheros code inspired by atheros---*/

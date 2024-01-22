@@ -7,6 +7,7 @@ from product.models import Product
 def view_basket(request):
     """ A view that renders the basket contents page """
 
+    request.session['show_basket_in_toast'] = False
     return render(request, 'basket/basket.html')
 
 def add_to_basket(request, item_id):
@@ -34,6 +35,7 @@ def add_to_basket(request, item_id):
     messages.success(request, f'Added {product.name} to your basket.')
         
     request.session['basket'] = basket
+    request.session['show_basket_in_toast'] = True
     return redirect(redirect_url)
 
 def adjust_basket(request, item_id):
