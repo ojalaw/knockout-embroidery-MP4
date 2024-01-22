@@ -9,33 +9,32 @@ def basket_contents(request):
     product_count = 0
     basket = request.session.get('basket', {})
 
-    for item_id, item_data in basket.items():
-        product = get_object_or_404(Product, pk=item_id)
+    for unique_key, item_details in basket.items():
+        # Default values if keys are missing
+        product_id = item_details.get('product_id')
+        quantity = item_details.get('quantity', 0)
+        size = item_details.get('size', '')
+        colour = item_details.get('colour', '')
+        embroidery_location = item_details.get('embroidery_location', '')
+        embroidery_text = item_details.get('embroidery_text', '')
 
-        if isinstance(item_data, dict):
-            for size, quantity in item_data.get('items_by_size', {}).items():
-                subtotal = quantity * product.price
-                total += subtotal
-                product_count += quantity
-                basket_items.append({
-                    'item_id': item_id,
-                    'quantity': quantity,
-                    'product': product,
-                    'size': size,
-                    'subtotal': subtotal,
-                })
-        else:
-            quantity = item_data
+        if product_id and quantity:  # Proceed only if product_id and quantity are present
+            product = get_object_or_404(Product, pk=product_id)
             subtotal = quantity * product.price
-            total += subtotal
-            product_count += quantity
-            basket_items.append({
-                'item_id': item_id,
-                'quantity': quantity,
-                'product': product,
-                'size': None,
-                'subtotal': subtotal,
-            })
+
+        total += subtotal
+        product_count += quantity
+
+        basket_items.append({
+            'unique_key': unique_key,
+            'quantity': quantity,
+            'product': product,
+            'size': size,
+            'colour': colour,
+            'embroidery_location': embroidery_location,
+            'embroidery_text': embroidery_text,
+            'subtotal': subtotal
+        })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)

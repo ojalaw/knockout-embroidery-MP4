@@ -35,8 +35,54 @@ body {
 /*---logo---*/
 
 .logo {
-    height: 50px;
-    margin-right: 10px; 
+    height: 200px;
+    width: 200px;
+  }
+
+  /*---button---*/
+
+  .btn {
+    background-color: black;
+    color: white; 
+    border-radius: 5px;
+    border: none;
+    padding: 8px 12px; 
+  }
+  
+  .btn:hover {
+    background-color: white; 
+    color: black;
+    border: 2px solid black;
+  }
+  
+  /*---primary action buttons---*/  
+  
+  .btn-main {
+    background-color: black;
+  }
+  
+  .btn-main:hover {
+    border-color: black;
+  }
+
+  /*---home---*/
+
+  .hero {
+    text-align: center;  
+  }
+  
+  .about {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  .about p {
+    text-align: center;
+  }
+  
+  .btn-main {
+    display: block;
+    margin: 0 auto;  
   }
 
 /*---toast-messages---*/
@@ -76,6 +122,29 @@ body {
     font-size: 3rem;
 }
 
+.basket-link p {
+    display: inline-block;
+    margin-bottom:0; 
+  }
+  
+  .basket-link i {
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .navbar-brand img {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-brand h1 {  
+    margin-bottom: 0;
+  }
+  
 /*---images---*/
 
 .product-image {

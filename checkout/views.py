@@ -33,25 +33,26 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            for item_id, item_data in basket.items():
+            for unique_key, item_details in basket.items():
+                product_id = unique_key.split('_')[0]
                 try:
-                    product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=item_data,
-                        )
-                        order_line_item.save()
-                    else:
-                        for size, quantity in item_data['items_by_size'].items():
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
-                            order_line_item.save()
+                    product = Product.objects.get(id=product_id)
+                    quantity = item_details['quantity']
+                    size = item_details.get('size', '')
+                    colour = item_details.get('colour', '')
+                    embroidery_location = item_details.get('embroidery_location', '')
+                    embroidery_text = item_details.get('embroidery_text', '')
+
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=quantity,
+                        product_size=size,
+                        colour=colour,
+                        embroidery_location=embroidery_location,
+                        embroidery_text=embroidery_text,
+                    )
+                    order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your basket wasn't found in our database. "

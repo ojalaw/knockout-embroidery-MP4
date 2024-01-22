@@ -47,13 +47,16 @@
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         <p class="my-0"><strong>Size: </strong>{{ item.size }}</p>
+                                        <p class="my-0"><strong>Colour: </strong>{{ item.colour }}</p>
+                                        <p class="my-0"><strong>Embroidery Location: </strong>{{ item.embroidery_location }}</p>
+                                        <p class="my-0"><strong>Embroidery Text: </strong>{{ item.embroidery_text }}</p>
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.unique_key %}">
                                             {% csrf_token %}
                                             <input type="hidden" name="product_size" value="{{ item.size }}">
                                             <div class="form-group">

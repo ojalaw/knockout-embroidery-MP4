@@ -21,6 +21,14 @@ class Product(models.Model):
         ('Yellow', 'Yellow'),
         ('Green', 'Green'),
     )
+    
+    EMBROIDERY_LOCATIONS = (
+        ('UL', 'Upper Left'),
+        ('LL', 'Lower Left'),
+        ('C', 'Centre'),
+        ('UR', 'Upper Right'),
+        ('LR', 'Lower Right'),
+    )
 
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -31,6 +39,8 @@ class Product(models.Model):
     stock = models.IntegerField()
     available = models.BooleanField(default=True)
     image = models.ImageField(null=True, blank=True)
+    embroidery_location = models.CharField(max_length=2, choices=EMBROIDERY_LOCATIONS, default='C', null=True, blank=True)
+    embroidery_text = models.CharField(max_length=255, null=True, blank=True)
     
     def __str__(self):
         return self.name

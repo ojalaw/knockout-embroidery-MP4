@@ -37,7 +37,7 @@
 
     <a class="navbar-brand" href="{% url 'home' %}">
       <img src="/media/media/knockout-embroidery-logo.png" class="logo" >
-      Knockout Embroidery  
+      <h1>Knockout Embroidery</h1>  
     </a>
 
     <button 
@@ -56,7 +56,7 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
         <li class="nav-item">          
-          <a class="nav-link" href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a> 
+          <a class="nav-link" href="{% url 'home' %}"> Home</a> 
         </li>
 
         <li class="nav-item dropdown">
@@ -66,7 +66,7 @@
         </li>
         {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" id="profile" href="{% url 'profile' %}"><i class="fa-solid fa-user"></i> My Profile</a>
+              <a class="nav-link" id="profile" href="{% url 'profile' %}"> Profile</a>
             </li>
             {% if request.user.is_superuser %}
             <li class="nav-item">
@@ -84,16 +84,18 @@
               <a class="nav-link" id="contact" href=#> Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="basket" href="{% url 'view_basket' %}"> <div class="text-center"></div>
-                <div><i class="fas fa-shopping-basket fa"></i></div>
+              <a class="nav-link" id="basket" href="{% url 'view_basket' %}">
+                <div class="basket-link">
                 <p class="my-0">
+                  <i class="fas fa-shopping-basket fa"></i>
                     {% if grand_total %}
                         ${{ grand_total|floatformat:2 }}
                     {% else %}
                         $0.00
                     {% endif %}
                 </p>
-            </div></a>
+              </div>
+            </a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
