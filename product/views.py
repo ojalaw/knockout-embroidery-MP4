@@ -5,35 +5,39 @@ from django.contrib.auth.decorators import login_required
 from .models import Product, Review
 from .forms import ReviewForm, ProductForm
 
-def reviews(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(product=product)
-    all_reviews = Review.objects.all() 
+def reviews(request):
+    all_reviews = Review.objects.all()
     context = {
         'reviews': all_reviews,
     }
     return render(request, 'product/reviews.html', context)
 
 @login_required
-def add_review(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
+def add_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
             review.user = request.user
-            review.product = product
             review.save()
             messages.success(request, 'Your review has been added!')
-            return redirect('reviews', product_id=product_id)
+            return redirect('reviews')
     else:
         form = ReviewForm()
 
-    context = {
-        'form': form,
-        'product': product,
-    }
-    return render(request, 'product/add_review.html', context)
+    return render(request, 'product/add_reviews.html', {'form': form})
+
+@login_required
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+
+    if request.user == review.user or request.user.is_superuser:
+        review.delete()
+        messages.success(request, "Your review has been deleted.")
+    else:
+        messages.error(request, "You do not have permission to delete this review.")
+
+    return redirect('reviews') 
 
 def products(request):
     """ A view to show all products, including sorting and search queries """

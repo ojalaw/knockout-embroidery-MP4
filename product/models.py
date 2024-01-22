@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.timesince import timesince
+from django.utils import timezone
 
 class Product(models.Model):
     SIZE_CHOICES = (
@@ -34,7 +36,14 @@ class Product(models.Model):
         return self.name
 
 class Review(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255, default='Review Title')
     rating = models.IntegerField()
     comment = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'{self.title} by {self.user.username}'
+
+    def timesince_posted(self):
+        return timesince(self.date_posted)
