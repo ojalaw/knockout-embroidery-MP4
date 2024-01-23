@@ -85,9 +85,18 @@ body {
 }
 
 .btn-main {
-    display: block;
+    display: inline-block;
     margin: 0 auto;  
     margin-top: 20px;
+    text-align: center;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.button-container {
+  text-align: center;
 }
 
 /*---products---*/
