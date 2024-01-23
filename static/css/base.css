@@ -14,7 +14,7 @@
 
 body {
     color: var(--secondary-color);
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Roboto Mono', sans-serif;
     margin: 0;
     background-color: var(--primary-color);
     display: flex;
@@ -69,21 +69,87 @@ body {
 
   .hero {
     text-align: center;  
-  }
-  
-  .about {
+    margin: 30px;
+}
+
+.about {
     max-width: 750px;
     margin: 0 auto;
-  }
-  
-  .about p {
+    margin-bottom: 30px; 
+    padding: 20px; 
+}
+
+.about p {
     text-align: center;
-  }
-  
-  .btn-main {
+    margin-bottom: 20px; 
+}
+
+.btn-main {
     display: block;
     margin: 0 auto;  
-  }
+    margin-top: 20px;
+}
+
+/*---carousel---*/
+
+#image-carousel {
+  display: none;
+}
+
+.carousel-item {
+  text-align: center; 
+}
+
+.carousel-item img {
+  max-width: 800px; 
+  height: 800px;
+  margin: auto; 
+}
+
+/*---Inspired by atheros---*/
+
+.gallery {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  position: relative;
+  left: 0px;
+  width: 200px;
+  border-radius: 16px;
+  height: 540px;
+  overflow: hidden;
+  background-color: var(--background);
+  transition: 0.4s ease-in-out;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+  flex: 0.25;
+}
+
+.card:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.card img {
+  height: 560px;
+}
+
+.card:hover {
+  flex: 2;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/*---end of inspired by atheros---*/
+
 
 /*---toast-messages---*/
 
@@ -105,8 +171,9 @@ body {
 /*---navbar---*/
 
 .navbar .nav-link {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
+    margin-right: 20px;
 }
 
 .nav-link:hover {
@@ -119,7 +186,7 @@ body {
 }
 
 .navbar-brand {
-    font-size: 3rem;
+    font-size: 3.5rem;
 }
 
 .basket-link p {
@@ -143,6 +210,7 @@ body {
   
   .navbar-brand h1 {  
     margin-bottom: 0;
+    font-size: 2.5rem;
   }
   
 /*---images---*/
@@ -249,3 +317,14 @@ body {
    font-size: 1.2em; 
    margin-top: 1em; 
  }
+
+ @media (max-width: 767px) {
+  .gallery {
+    display: none;
+  }
+
+  #image-carousel {
+    display: block;
+  }
+}
+

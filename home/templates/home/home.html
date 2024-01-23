@@ -3,19 +3,70 @@
 {% block content %}
 
 <div class="hero">
-   <h1>Leading supplier of embroidered clothing - no minimum orders!</h1>
+   <div class="title">
+   <h1>Welcome to Knockout Embroidery</h1>
+</div>
+<div class="title-text">
+   <h2>Leading supplier of embroidered clothing - no minimum orders!</h2>
+</div>
 </div>
 
 <div class="about">
-
    <p>At KnockOut Embroidery, we’re committed to delivering the best experience for our customers - the best prices, service, and selection.</p>
-
    <p>We aim for excellence as a leading supplier of customized workwear, sportswear, schoolwear and more. With no minimum orders, we help businesses bring their vision to life!</p>
-    
    <p>We believe in honesty, trust and hard work....you will not be disappointed!!</p>
+</div>
+
+<div id="image-carousel" class="carousel slide" data-bs-ride="carousel">
+   <div class="carousel-inner">
+       <div class="carousel-item active">
+           <img src="/media/media/finished-emb.png" class="d-block w-100" alt="Description1">
+       </div>
+       <div class="carousel-item">
+           <img src="/media/media/marines-emb.png" class="d-block w-100" alt="Description2">
+       </div>
+       <div class="carousel-item">
+           <img src="/media/media/toshiba-emb.png" class="d-block w-100" alt="Description3">
+       </div>
+   </div>
+   <a class="carousel-control-prev" href="#image-carousel" role="button" data-bs-slide="prev">
+       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+       <span class="visually-hidden">Previous</span>
+   </a>
+   <a class="carousel-control-next" href="#image-carousel" role="button" data-bs-slide="next">
+       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+       <span class="visually-hidden">Next</span>
+   </a>
+</div>
+
+<!---Inspired by Atheros-->
+<div class="gallery">
+   <div class="card">
+       <figure>
+           <a>
+               <img src="/media/media/finished-emb.png" alt="">
+           </a>
+       </figure>
+   </div>
+   <div class="card">
+       <figure>
+           <a>
+               <img src="/media/media/marines-emb.png" alt="">
+           </a>
+       </figure>
+   </div>
+   <div class="card">
+       <figure>
+           <a>
+               <img src="/media/media/toshiba-emb.png" alt="">
+           </a>
+       </figure>
+   </div>
+   </div>
+   <!---end of inspired by Atheros-->
 
    <a href="{% url 'products' %}" class="btn btn-main">Browse Products</a>
 
-</div>
+
 
 {% endblock %}
