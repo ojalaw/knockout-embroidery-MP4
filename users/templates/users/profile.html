@@ -10,15 +10,15 @@
         </div>
         <div class="row">
          <div class="col-12 col-lg-6 profile-section">
-             <p class="text-muted">Default Delivery Information</p>
-             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+            <h2 class="section-heading">Default Delivery Information</h2>
+             <form class="mt-3 form-limited-width" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                  {% csrf_token %}
                  {{ form|crispy }}
                  <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
              </form>
          </div>
          <div class="col-12 col-lg-6 profile-section">
-            <p class="text-muted">Order History</p>
+            <h2 class="section-heading">Order History</h2>
             <div class="order-history table-responsive">
                 <table class="table table-sm table-borderless">
                     <thead>
