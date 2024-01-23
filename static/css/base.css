@@ -220,11 +220,12 @@ input[name="default_county"] {
   border: none;
   padding: 10px 20px;
   text-transform: uppercase;
+
 }
 
 .btn-black:hover {
-  background-color: black; 
-  color: white;
+  background-color: white; 
+  color: black;
 }
 
 
@@ -524,7 +525,15 @@ input[name="default_county"] {
     height: 2px;
 }
 
+/*---basket---*/
 
+.update-link, .remove-item {
+  margin-top: 10px;
+}
+
+.update-form {
+  margin-bottom: 20px;
+}
 /*---socials-footer---*/
 /*---Atheros code inspired by atheros---*/
 
