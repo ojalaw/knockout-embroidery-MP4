@@ -48,7 +48,7 @@ class Product(models.Model):
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, default='Review Title')
-    rating = models.IntegerField()
+    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
     comment = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
 

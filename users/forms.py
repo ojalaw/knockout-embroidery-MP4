@@ -20,7 +20,6 @@ class UserRegisterForm(UserCreationForm):
             'default_phone_number': 'Phone Number',
             'password1': 'Password',
             'password2': 'Confirm Password',
-            # Include other fields if necessary
         }
 
         for field in self.fields:

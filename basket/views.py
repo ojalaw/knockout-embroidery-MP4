@@ -59,24 +59,14 @@ def adjust_basket(request, unique_key):
     messages.success(request, 'Basket updated successfully.')
     return redirect('view_basket')
 
-def remove_from_basket(request, item_id):
-    """Remove the item from the shopping basket"""
+def remove_from_basket(request, unique_key):
+    """Remove the item from the shopping basket identified by the unique key."""
 
-    try:
-        size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
-        basket = request.session.get('basket', {})
+    basket = request.session.get('basket', {})
 
-        if size:
-            del basket[item_id]['items_by_size'][size]
-            if not basket[item_id]['items_by_size']:
-                basket.pop(item_id)
-        else:
-            basket.pop(item_id)
+    if unique_key in basket:
+        del basket[unique_key]
 
-        request.session['basket'] = basket
-        return HttpResponse(status=200)
-
-    except Exception as e:
-        return HttpResponse(status=500)
+    request.session['basket'] = basket
+    messages.success(request, 'Item removed from your basket.')
+    return redirect('view_basket')
