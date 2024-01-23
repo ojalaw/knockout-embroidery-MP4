@@ -90,6 +90,34 @@ body {
     margin-top: 20px;
 }
 
+/*---products---*/
+
+.product-container {
+  padding: 10px;
+}
+
+.product-text {
+  text-align: center;
+}
+
+.card-img-top {
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.card-body p {
+  font-size: 1.2em;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.card-footer .lead {
+  font-size: 1.2em; 
+  padding: 5px;
+  font-weight: bold;
+}
+
+
 /*---carousel---*/
 
 #image-carousel {
