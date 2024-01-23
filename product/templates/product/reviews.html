@@ -2,9 +2,15 @@
 
 {% block content %}
     <h1 class="reviews-title">Reviews</h1>
+    {% if not user.is_authenticated %}
+    <div class ="review-text">
+    <p>You must be <a href="{% url 'login' %}">logged in</a> to add a review. Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+</div>
+{% else %}
     <div class="button-container">
     <a href="{% url 'add_review' %}" class="add-review-btn">Add a Review</a>
 </div>
+{% endif %}
     <div>
         {% for review in reviews %}
             <div class="review-container">

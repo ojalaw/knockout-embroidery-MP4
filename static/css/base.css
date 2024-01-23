@@ -281,6 +281,12 @@ input[name="default_county"] {
   margin-bottom: 20px;
 }
 
+.review-text {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /*---add-review---*/
 
 .review-form-container {
