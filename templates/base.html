@@ -37,7 +37,7 @@
   <div class="container-fluid">
 
     <a class="navbar-brand" href="{% url 'home' %}">
-      <img src="/media/media/knockout-embroidery-logo.png" class="logo" >
+      <img src="{{ MEDIA_URL }}media/knockout-embroidery-logo.png" class="logo" >
       <h1>Knockout Embroidery</h1>  
     </a>
 
@@ -187,7 +187,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{% static 'js/script.js' %}"></script>
-  <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+  
 
   {% block postloadjs %}
     <script type="text/javascript">
