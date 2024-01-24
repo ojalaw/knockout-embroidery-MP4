@@ -35,9 +35,8 @@
   </form>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-
     <a class="navbar-brand" href="{% url 'home' %}">
-      <img src="{{ MEDIA_URL }}knockout-embroidery-logo.png" class="logo" >
+      <img src="{{ MEDIA_URL }}knockout-embroidery-logo.png" class="logo">
       <h1 class="navbar-title">Knockout Embroidery</h1>  
     </a>
 
@@ -71,7 +70,7 @@
             </li>
             {% if request.user.is_superuser %}
             <li class="nav-item">
-              <a class="nav-link" id="product admin" href="{% url 'add_product' %}" class="dropdown-item">Product Admin</a>
+              <a class="nav-link" id="product admin" href="{% url 'add_product' %}" class="dropdown-item"><i class="fa-solid fa-gear"></i></a>
             </li>
             {% endif %}
             {% endif %}

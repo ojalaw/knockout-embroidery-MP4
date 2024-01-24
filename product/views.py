@@ -6,7 +6,7 @@ from .models import Product, Review
 from .forms import ReviewForm, ProductForm
 
 def reviews(request):
-    all_reviews = Review.objects.all()
+    all_reviews = Review.objects.all().order_by('-date_posted')
     context = {
         'reviews': all_reviews,
     }

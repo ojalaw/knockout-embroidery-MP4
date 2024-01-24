@@ -99,10 +99,25 @@ body {
   text-align: center;
 }
 
+/*---about-container---*/
+
+.about-container {
+  text-align: center; 
+  max-width: 800px;
+  margin: auto; 
+  padding: 20px;
+}
+
 /*---products---*/
 
 .product-container {
   padding: 10px;
+}
+
+.card-img-top:hover {
+  border: 3px solid black; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: border 0.3s ease-in-out;
 }
 
 .product-text {
@@ -128,6 +143,11 @@ body {
 
 /*---profile---*/
 
+.row {
+  padding: 10px;
+  margin: 10px;
+}
+
 .profile-section .section-heading {
   text-align: center;
   font-weight: bold;
@@ -136,7 +156,6 @@ body {
 .profile-section {
   padding: 20px; 
   border: 1px solid black; 
-  margin-bottom: 20px;
 }
 
 input[name="default_phone_number"],
@@ -180,7 +199,6 @@ input[name="default_county"] {
   color: white;
   border: none;
   padding: 10px 20px;
-  text-transform: uppercase;
 }
 
 .btn-black:hover {
@@ -214,26 +232,37 @@ input[name="default_county"] {
   margin-bottom: 10px;
 }
 
-.btn-black {
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-transform: uppercase;
-
+.form .text-right {
+  margin-top: 20px;
 }
-
-.btn-black:hover {
-  background-color: white; 
-  color: black;
-}
-
 
 /*---reviews---*/
 
+.review-container {
+  width: 800px;
+}
+
 .reviews-title {
   text-align: center;
-  margin: 20px 0;
+}
+
+.review-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.review-header div{
+  display: flex;
+  align-items: center;
+  width:100%;
+}
+
+.user-and-rating {
+  margin-bottom: 10px;
+}
+
+.review-user {
+  margin-bottom: 5px;
 }
 
 .add-review-btn {
@@ -256,8 +285,9 @@ input[name="default_county"] {
   padding: 15px;
   margin: auto;
   margin-bottom: 20px;
-  text-align: center;
   max-width: 800px;
+  text-align: left;
+  border-radius: 5px;
 }
 
 .review-delete-btn {
@@ -268,7 +298,6 @@ input[name="default_county"] {
   border-radius: 5px;
   text-decoration: none;
   display: inline-block;
-  margin-top: 10px;
 }
 
 .review-delete-btn:hover {
@@ -286,6 +315,22 @@ input[name="default_county"] {
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.review-comment {
+  margin-bottom: 10px;
+}
+
+.review-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin-top: 10px; 
+}
+
+.review-date {
+  align-self: flex-end; 
+  margin-left: auto;
 }
 
 /*---add-review---*/
@@ -332,7 +377,8 @@ input[name="default_county"] {
 /*---star---*/
 
 .star-rating {
-  direction: rtl; 
+  margin-top: 10px; 
+  margin-bottom: 20px; 
 }
 
 .star-rating input[type="radio"] {
@@ -343,6 +389,7 @@ input[name="default_county"] {
   font-size: 2em;
   color: #ddd; 
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .star-rating input[type="radio"]:checked ~ label {
@@ -355,11 +402,6 @@ input[name="default_county"] {
 
 .review-form-container form > * {
   margin-bottom: 15px; 
-}
-
-.star-rating {
-  margin-top: 10px; 
-  margin-bottom: 20px; 
 }
 
 .star-rating .filled-star, .star-rating .empty-star {
@@ -453,6 +495,22 @@ input[name="default_county"] {
 
 /*---navbar---*/
 
+.navbar .nav-link i,
+.navbar .nav-item form .btn-link {
+    color: white;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-item form .btn-link:hover {
+    background-color: white;
+    border-radius: 5px; 
+}
+
+.navbar .nav-link:hover i,
+.navbar .nav-item form .btn-link:hover i {
+    color: black;
+}
+
 .navbar .nav-item {
   float: none;
 }
@@ -461,10 +519,8 @@ input[name="default_county"] {
     font-size: 1.8rem;
     color: var(--primary-color);
     margin-right: 20px;
-}
-
-.nav-link:hover {
-    text-decoration: underline;
+    color: inherit;
+    transition: color 0.3s;
 }
 
 .navbar .dropdown-menu .dropdown-item {
@@ -474,22 +530,9 @@ input[name="default_county"] {
 
 .navbar-brand {
     font-size: 3.5rem;
-}
-
-.basket-link p {
-    display: inline-block;
-    margin-bottom:0; 
-  }
-  
-  .basket-link i {
-    display: inline-block;
-    font-size: 18px;
-  }
-
-  .navbar-brand {
     display: flex;
-    align-items: center; 
-  }
+    align-items: center;
+}
   
   .navbar-brand img {
     margin-right: 0.5rem;
@@ -498,6 +541,11 @@ input[name="default_county"] {
   .navbar-brand h1 {  
     margin-bottom: 0;
     font-size: 2.5rem;
+  }
+
+  .navbar .nav-link .basket-link.basket-active,
+  .navbar .nav-link .basket-link.basket-active i {
+      color: gold;
   }
   
 /*---images---*/
@@ -612,6 +660,57 @@ input[name="default_county"] {
    font-size: 1.2em; 
    margin-top: 1em; 
  }
+
+ @media (max-width: 1199px) {
+  .navbar .nav-link {
+      font-size: 1.2rem;
+  }
+
+  .navbar .nav-link i {
+      font-size: 1.2rem;
+  }
+  
+  .navbar-brand h1 {  
+    margin-bottom: 0;
+    font-size: 2rem;
+  }
+
+}
+
+@media (max-width: 991px) {
+ 
+.navbar {
+    position: relative;
+}
+
+.navbar-toggler {
+  position: absolute;
+  right: 10px; 
+  bottom: 10px;
+  z-index: 9999; 
+}
+
+.navbar .container-fluid {
+    text-align: center; 
+}
+
+.navbar-brand {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar-logo {
+    width: 50px; 
+    margin: 0 auto; 
+    display: block;
+}
+
+.navbar-title {
+    display: block; 
+    margin-top: 10px;
+}
+}
 
  @media (max-width: 767px) {
   .gallery {

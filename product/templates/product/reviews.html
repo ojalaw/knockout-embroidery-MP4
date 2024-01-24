@@ -3,20 +3,22 @@
 {% block content %}
     <h1 class="reviews-title">Reviews</h1>
     {% if not user.is_authenticated %}
-    <div class ="review-text">
-    <p>You must be <a href="{% url 'login' %}">logged in</a> to add a review. Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
-</div>
-{% else %}
-    <div class="button-container">
-    <a href="{% url 'add_review' %}" class="add-review-btn">Add a Review</a>
-</div>
-{% endif %}
-    <div>
-        {% for review in reviews %}
-            <div class="review-container">
-                <h3>{{ review.title }}</h3>
-                <p><strong>User:</strong> {{ review.user.username }}</p>
+        <div class="review-text">
+            <p>You must be <a href="{% url 'login' %}">logged in</a> to add a review. Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+        </div>
+    {% else %}
+        <div class="button-container">
+            <a href="{% url 'add_review' %}" class="add-review-btn">Add a Review</a>
+        </div>
+    {% endif %}
+
+    {% for review in reviews %}
+        <div class="review-container">
+            <h3 class="review-title">{{ review.title }}</h3>
+            <div class="user-and-rating">
+                <p class="review-user"><strong>User:</strong> {{ review.user.username }}</p>
                 <div class="star-rating">
+                    <span class="rating-label"><strong>Rating:</strong></span>
                     {% for i in "12345" %}
                         {% if forloop.counter <= review.rating %}
                             <span class="filled-star">&#9733;</span>
@@ -25,14 +27,16 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                <p><strong>Comment:</strong> {{ review.comment }}</p>
-                {% if request.user == review.user or request.user.is_superuser %}
-                    <a href="{% url 'delete_review' review.id %}" class="review-delete-btn">Delete</a>
-                {% endif %}
-                <p><small>Posted {{ review.timesince_posted }} ago</small></p>
             </div>
-        {% empty %}
-            <p>No reviews yet.</p>
-        {% endfor %}
-    </div>
+            <p class="review-comment"><strong>Comment:</strong> {{ review.comment }}</p>
+            {% if request.user == review.user or request.user.is_superuser %}
+                <div class="review-footer">
+                    <a href="{% url 'delete_review' review.id %}" class="review-delete-btn">Delete</a>
+                    <p class="review-date">Posted {{ review.timesince_posted }} ago</p>
+                </div>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>No reviews yet.</p>
+    {% endfor %}
 {% endblock %}
