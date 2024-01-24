@@ -38,7 +38,7 @@
 
     <a class="navbar-brand" href="{% url 'home' %}">
       <img src="{{ MEDIA_URL }}knockout-embroidery-logo.png" class="logo" >
-      <h1>Knockout Embroidery</h1>  
+      <h1 class="navbar-title">Knockout Embroidery</h1>  
     </a>
 
     <button 
@@ -57,17 +57,17 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
         <li class="nav-item">          
-          <a class="nav-link" href="{% url 'home' %}"> Home</a> 
+          <a class="nav-link" href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a> 
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" href="{% url 'products' %}" role="button"> 
-           Products
+            <i class="fa-sharp fa-solid fa-shirt"></i>
           </a>
         </li>
         {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" id="profile" href="{% url 'profile' %}"> Profile</a>
+              <a class="nav-link" id="profile" href="{% url 'profile' %}"><i class="fa-solid fa-user"></i></a>
             </li>
             {% if request.user.is_superuser %}
             <li class="nav-item">
@@ -76,38 +76,31 @@
             {% endif %}
             {% endif %}
             <li class="nav-item">
-              <a class="nav-link" id="review" href="{% url 'reviews' %}">Reviews</a>
+              <a class="nav-link" id="review" href="{% url 'reviews' %}"><i class="fa-solid fa-magnifying-glass"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="about" href="{% url 'about_us' %}"> About us</a>
+              <a class="nav-link" id="about" href="{% url 'about_us' %}"><i class="fa-solid fa-circle-info"></i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="basket" href="{% url 'view_basket' %}">
-                <div class="basket-link">
-                <p class="my-0">
-                  <i class="fas fa-shopping-basket fa"></i>
-                    {% if grand_total %}
-                        ${{ grand_total|floatformat:2 }}
-                    {% else %}
-                        $0.00
-                    {% endif %}
-                </p>
-              </div>
-            </a>
-            </li>
+                  <div class="basket-link {% if grand_total > 0 %}basket-active{% endif %}">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+              </a>
+          </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
                 <form action="{% url 'logout' %}" method="post" class="form-inline">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-link nav-link">Logout</button>
+                    <button type="submit" class="btn btn-link nav-link"><i class="fa-solid fa-right-from-bracket"></i></button>
                 </form>
             </li>
         {% else %}
             <li class="nav-item">
-              <a class="nav-link" id="login" href="{% url 'login' %}"> Login</a>
+              <a class="nav-link" id="login" href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="signUp" href="{% url 'register' %}"> Sign Up</a>
+              <a class="nav-link" id="signUp" href="{% url 'register' %}"><i class="fa-solid fa-user-plus"></i></a>
             </li>
             {% endif %}
       </ul>
