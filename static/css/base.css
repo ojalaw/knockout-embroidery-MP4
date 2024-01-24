@@ -105,6 +105,12 @@ body {
   padding: 10px;
 }
 
+.card-img-top:hover {
+  border: 3px solid black; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: border 0.3s ease-in-out;
+}
+
 .product-text {
   text-align: center;
 }

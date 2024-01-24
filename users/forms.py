@@ -31,11 +31,12 @@ class UserRegisterForm(UserCreationForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['default_phone_number', 'default_country', 
-                  'default_postcode', 'default_town_or_city', 
+        fields = ['default_phone_number',   
                   'default_street_address1', 
-                  'default_street_address2', 
-                  'default_county']
+                  'default_street_address2',
+                  'default_town_or_city', 
+                  'default_postcode', 'default_county', 
+                  'default_country']
         
     def __init__(self, *args, **kwargs):
         super(ProfileUpdateForm, self).__init__(*args, **kwargs)
