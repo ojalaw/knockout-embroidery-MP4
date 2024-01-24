@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView, LogoutView
 from .forms import UserRegisterForm, ProfileUpdateForm
 from django.contrib import messages
+from django.urls import reverse_lazy
 from users.models import Profile
 from checkout.models import Order
 
@@ -16,6 +18,20 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
+class CustomLoginView(LoginView):
+    def form_valid(self, form):
+        messages.success(self.request, "You have successfully logged in.")
+        return super().form_valid(form)
+    
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('home') 
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(request, "You have successfully logged out.")
+        return super().dispatch(request, *args, **kwargs)
+    
+    
 
 @login_required
 def profile(request):

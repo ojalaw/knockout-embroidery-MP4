@@ -18,11 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from home.views import home, about_us
 from product.views import products, product_detail, reviews, add_review, add_product, edit_product, delete_product, delete_review
-from users.views import profile, order_history
+from users.views import profile, order_history, CustomLoginView, CustomLogoutView
 from basket.views import add_to_basket, view_basket, adjust_basket, remove_from_basket
 from checkout.views import checkout, checkout_success
 from checkout.webhook import webhook
-from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -31,8 +30,8 @@ urlpatterns = [
     path('', home, name='home'),
     path('about-us/', about_us, name='about_us'),
     path('users/', include('users.urls')),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('login/', CustomLoginView.as_view(template_name='users/login.html'), name='login'),
+    path('logout/', CustomLogoutView.as_view(), name='logout'),
     path('products/', products, name='products'),
     path('products/<int:product_id>/', product_detail, name='product_detail'),
     path('reviews/', reviews, name='reviews'),
