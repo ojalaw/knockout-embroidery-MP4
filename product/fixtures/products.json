@@ -10,7 +10,7 @@
         "size": "M",
         "stock": 1,
         "available": true,
-        "image": "media/t-shirt.jpg"
+        "image": "t-shirt.jpg"
       }
     },
     {
@@ -24,7 +24,7 @@
         "size": "L",
         "stock": 30,
         "available": true,
-        "image": "media/polo.jpg"
+        "image": "polo.jpg"
       }
     },
     {
@@ -38,7 +38,7 @@
         "size": "XL",
         "stock": 20,
         "available": true,
-        "image": "media/jumper.jpg"
+        "image": "jumper.jpg"
       }
     },
     {
@@ -52,7 +52,7 @@
         "size": "M",
         "stock": 25,
         "available": true,
-        "image": "media/hoodie.jpg"
+        "image": "hoodie.jpg"
       }
     },
     {
@@ -66,7 +66,7 @@
         "size": "L",
         "stock": 40,
         "available": true,
-        "image": "media/shorts.jpg"
+        "image": "shorts.jpg"
       }
     },
     {
@@ -80,7 +80,7 @@
         "size": "One Size",
         "stock": 60,
         "available": true,
-        "image": "media/hat.jpg"
+        "image": "hat.jpg"
       }
     }
   ]
