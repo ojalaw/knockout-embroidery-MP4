@@ -30,7 +30,10 @@
                 </div>
                 <p class="review-comment"><strong>Comment:</strong> {{ review.comment }}</p>
                 <div class="review-footer">
-                    <div class ="review-btns">
+                    </div>
+                    <p class="review-date">Posted {{ review.timesince_posted }} ago</p>
+                </div>
+                <div class ="review-btns">
                     {% if request.user == review.user %}
                         <button onclick="toggleEditForm('{{ review.id }}')" class="btn">Edit</button>
                     {% endif %}
@@ -38,9 +41,6 @@
                         <a href="{% url 'delete_review' review.id %}" class="btn">Delete</a>
                     {% endif %}
                 </div>
-                    <p class="review-date">Posted {{ review.timesince_posted }} ago</p>
-                </div>
-            </div>
 
             {% if request.user == review.user %}
         <div class="review-edit-form" id="review-edit-form-{{ review.id }}" style="display: none;">

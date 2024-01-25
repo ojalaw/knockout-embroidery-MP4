@@ -1,51 +1,80 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="about-container">
-  <h1>About</h1>
-
-  <img src="{{ MEDIA_URL }}knockout-embroidery-logo.png" alt="Company Logo" class="rotating-image">
-
-  <p>
-    At KnockOut Embroidery, we’re committed to delivering the best experience for our customers; 
-    <br>
-    - The best prices.
-    <br>
-    - The best service.
-    <br>
-    - The best selection.
-  </p>
-
-  <p>
-    We are a family run business focusing on quality embroidery for your business or bespoke garments.
-  </p>
-
-  <p>
-    Knockout Embroidery was set up during the COVID pandemic and has gone from strength to strength, 
-    we pride ourselves on our hard work and honesty. Building our reputation going that extra mile for the customer. 
-  </p>
-
-  <h2>Contact Us</h2>
-  <form method="post" class="contact-form">
-    {% csrf_token %}
-    <div class="form-field">
-        {{ form.name }}
+<div class="container about-container"> <!-- Use container for proper alignment and padding -->
+  <div class="row">
+    <div class="col-12 text-center"> <!-- Centered text for the title -->
+      <h1>About</h1>
     </div>
-    <div class="form-field">
-        {{ form.email }}
-    </div>
-    <div class="form-field">
-        {{ form.subject }}
-    </div>
-    <div class="form-field">
-        {{ form.message }}
-    </div>
-    <button type="submit" class="btn">Send Message</button>
-</form>
+  </div>
 
-  <p>Alternatively, you can reach us on the following numbers/email below</p>
-  <p>07572 433822</p>
-  <p>07914873811</p>
-  <p>knockoutembroidery@gmail.com</p>
+  <div class="row">
+    <div class="col-12 text-center"> <!-- Centered image -->
+      <img src="{{ MEDIA_URL }}knockout-embroidery-logo.png" alt="Company Logo" class="img-fluid rotating-image"> <!-- Responsive image -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2"> <!-- Responsive text column -->
+      <p>At KnockOut Embroidery, we’re committed to delivering the best experience for our customers; 
+        <br>- The best prices.
+        <br>- The best service.
+        <br>- The best selection.
+      </p>
+
+      <p>We are a family run business focusing on quality embroidery for your business or bespoke garments.</p>
+
+      <p>Knockout Embroidery was set up during the COVID pandemic and has gone from strength to strength, we pride ourselves on our hard work and honesty. Building our reputation going that extra mile for the customer.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h2>Contact Us</h2>
+      <form method="post" class="contact-form">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12 col-md-6"> 
+                <div class="form-field mb-3">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name">
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-field mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-field mb-3">
+                    <input type="text" name="subject" class="form-control" placeholder="Subject">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-field mb-3">
+                    <textarea name="message" class="form-control" placeholder="Your Message" rows="4"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+        </div>
+    </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <p>Alternatively, you can reach us on the following numbers/email below</p>
+      <p>07572 433822</p>
+      <p>07914873811</p>
+      <p>knockoutembroidery<br>@gmail.com</p>
+    </div>
+  </div>
 </div>
 {% endblock %}
