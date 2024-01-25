@@ -616,13 +616,19 @@ input[name="default_county"] {
 
 /*---navbar---*/
 
+.navbar-dark .navbar-nav .nav-link {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .navbar .nav-link i,
 .navbar .nav-item form .btn-link {
     color: white;
 }
 
 .navbar .nav-link:hover,
-.navbar .nav-item form .btn-link:hover {
+.navbar .nav-item form .btn-link:hover, 
+.navbar-dark .navbar-nav .nav-link:focus {
     background-color: white;
     border-radius: 5px; 
 }
@@ -794,7 +800,7 @@ input[name="default_county"] {
   }
 }
 
- @media (max-width: 1199px) {
+ @media (max-width: 1264px) {
   .navbar .nav-link {
       font-size: 1.2rem;
   }
@@ -806,6 +812,22 @@ input[name="default_county"] {
   .navbar-brand h1 {  
     margin-bottom: 0;
     font-size: 2rem;
+  }
+
+}
+
+@media (max-width: 1090px) {
+  .navbar .nav-link {
+      font-size: 1rem;
+  }
+
+  .navbar .nav-link i {
+      font-size: 1rem;
+  }
+  
+  .navbar-brand h1 {  
+    margin-bottom: 0;
+    font-size: 1.5rem;
   }
 
 }
