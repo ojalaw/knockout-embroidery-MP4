@@ -18,8 +18,8 @@
                 <h3 class="review-title">{{ review.title }}</h3>
                 <div class="user-and-rating">
                     <p class="review-user"><strong>User:</strong> {{ review.user.username }}</p>
-                    <div class="star-rating">
                         <span class="rating-label"><strong>Rating:</strong></span>
+                        <div class="star-rating">
                         {% for i in "12345" %}
                             {% if forloop.counter <= review.rating %}
                                 <span class="filled-star">&#9733;</span>

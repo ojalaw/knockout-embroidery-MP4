@@ -4,6 +4,8 @@
 <div class="about-container">
   <h1>About</h1>
 
+  <img src="{{ MEDIA_URL }}knockout-embroidery-logo.png" alt="Company Logo" class="rotating-image">
+
   <p>
     At KnockOut Embroidery, we’re committed to delivering the best experience for our customers; 
     <br>
@@ -23,15 +25,27 @@
     we pride ourselves on our hard work and honesty. Building our reputation going that extra mile for the customer. 
   </p>
 
+  <h2>Contact Us</h2>
+  <form method="post" class="contact-form">
+    {% csrf_token %}
+    <div class="form-field">
+        {{ form.name }}
+    </div>
+    <div class="form-field">
+        {{ form.email }}
+    </div>
+    <div class="form-field">
+        {{ form.subject }}
+    </div>
+    <div class="form-field">
+        {{ form.message }}
+    </div>
+    <button type="submit" class="btn">Send Message</button>
+</form>
 
-
-
-  <h1>Contact</h1>
-
+  <p>Alternatively, you can reach us on the following numbers/email below</p>
   <p>07572 433822</p>
-
   <p>07914873811</p>
-
   <p>knockoutembroidery@gmail.com</p>
 </div>
 {% endblock %}
