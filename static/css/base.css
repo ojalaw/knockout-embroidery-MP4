@@ -404,7 +404,7 @@ input[name="default_county"] {
 /*---star---*/
 
 .star-rating {
-  direction:rtl;
+  direction: rtl;
   margin-top: 10px; 
   margin-bottom: 20px; 
 }
@@ -442,6 +442,10 @@ input[name="default_county"] {
 .star-rating .empty-star {
   color: lightgray;
   -webkit-text-stroke: 1px black; 
+}
+
+.rating-label {
+  order: -1;
 }
 
 /*---edit-review---*/
