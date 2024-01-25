@@ -265,19 +265,8 @@ input[name="default_county"] {
   margin-bottom: 5px;
 }
 
-.add-review-btn {
-  display: inline-block;
-  background-color: black;
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.add-review-btn:hover {
-  background-color: #333;
-  color: white;
+.review-btns {
+  justify-content: space-between;
 }
 
 .review-container {
@@ -377,6 +366,7 @@ input[name="default_county"] {
 /*---star---*/
 
 .star-rating {
+  direction:rtl;
   margin-top: 10px; 
   margin-bottom: 20px; 
 }
@@ -394,6 +384,7 @@ input[name="default_county"] {
 
 .star-rating input[type="radio"]:checked ~ label {
   color: #f5eb3b;
+  -webkit-text-stroke: 1px black;
 }
 
 .review-form-container h1 {
@@ -412,6 +403,58 @@ input[name="default_county"] {
 
 .star-rating .empty-star {
   color: lightgray;
+  -webkit-text-stroke: 1px black; 
+}
+
+/*---edit-review---*/
+
+.review-edit-form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.review-edit-form input[type="text"],
+.review-edit-form textarea {
+  width: 90%; 
+  margin: 10px auto;
+  display: block;
+}
+
+.review-edit-form button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.review-edit-form button:hover {
+  background-color: white;
+  color: black; 
+  border: 1px black;
+}
+
+.star-rating-edit {
+  direction: rtl;
+  font-size: 24px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.star-rating-edit input[type="radio"] {
+  display: none;
+}
+
+.star-rating-edit label {
+  color: #ddd;
+  cursor: pointer;
+}
+
+.star-rating-edit input[type="radio"]:checked ~ label {
+  color: gold;
+  -webkit-text-stroke: 1px black; 
 }
 
 
@@ -574,6 +617,10 @@ input[name="default_county"] {
 }
 
 /*---basket---*/
+
+.basket-btns {
+  margin: 20px;
+}
 
 .update-link, .remove-item {
   margin-top: 10px;

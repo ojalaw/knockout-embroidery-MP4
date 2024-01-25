@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Product, Review
 from .forms import ReviewForm, ProductForm
+from django.http import HttpResponseForbidden
 
 def reviews(request):
     all_reviews = Review.objects.all().order_by('-date_posted')
@@ -14,6 +15,7 @@ def reviews(request):
 
 @login_required
 def add_review(request):
+    """ A view that allows users to add reviews """
     request.session['show_basket_in_toast'] = False
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -28,8 +30,28 @@ def add_review(request):
 
     return render(request, 'product/add_reviews.html', {'form': form})
 
+from django.http import HttpResponseForbidden
+
+@login_required
+def update_review(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+
+    if request.user != review.user:
+        return HttpResponseForbidden()
+
+    if request.method == 'POST':
+        review.title = request.POST.get('title')
+        review.comment = request.POST.get('comment')
+        review.save()
+        messages.success(request, 'Your review has been updated!')
+        return redirect('reviews')
+
+    all_reviews = Review.objects.all().order_by('-date_posted')
+    return render(request, 'product/reviews.html', {'reviews': all_reviews})
+
 @login_required
 def delete_review(request, review_id):
+    """ A view that allows users to delete reviews """
     review = get_object_or_404(Review, pk=review_id)
 
     if request.user == review.user or request.user.is_superuser:

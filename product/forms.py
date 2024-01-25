@@ -10,6 +10,11 @@ class ReviewForm(forms.ModelForm):
             'comment': forms.Textarea(),
         }
         
+    def __init__(self, *args, **kwargs):
+        super(ReviewForm, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs.update({'placeholder': 'Review Title'})
+        self.fields['comment'].widget.attrs.update({'placeholder': 'Enter your review here'})
+        
 
 class ProductForm(forms.ModelForm):
 
