@@ -50,12 +50,13 @@
                 <textarea name="comment">{{ review.comment }}</textarea>
 
                 <div class="star-rating-edit">
-                    {% for star in "12345" %}
-                        <input type="radio" id="star{{star}}-{{review.id}}" name="rating" value="{{ star }}"
-                               {% if review.rating == star %} checked {% endif %}/>
-                        <label for="star{{star}}-{{review.id}}">&#9733;</label>
-                    {% endfor %}
-                </div>
+    {% for star in "12345" %}
+        <input type="radio" id="star{{ star }}-{{ review.id }}" name="rating" value="{{ star }}"
+               {% if review.rating == star %} checked {% endif %}/>
+        <label for="star{{ star }}-{{ review.id }}">&#9733;</label>
+    {% endfor %}
+</div>
+
 
                 <button type="submit" class ="btn">Save Changes</button>
                 <button type="button" class ="btn" onclick="toggleEditForm('{{ review.id }}')">Cancel</button>

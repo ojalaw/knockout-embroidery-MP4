@@ -443,8 +443,11 @@ input[name="default_county"] {
 /*---star---*/
 
 .star-rating {
-  direction: rtl;
-  margin-top: 10px; 
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-top: 10px;
   margin-bottom: 20px; 
 }
 
@@ -515,7 +518,7 @@ input[name="default_county"] {
 }
 
 .star-rating-edit {
-  direction: rtl;
+  direction: ltr;
   font-size: 24px;
   text-align: center;
   margin: 10px 0;
@@ -720,6 +723,14 @@ input[name="default_county"] {
 
 .qty-input {
   max-width: 60px;
+}
+
+.review-container {
+  overflow-wrap: break-word;
+}
+
+.review-title, .review-comment {
+  word-break: break-word;
 }
 
 /*---socials-footer---*/
