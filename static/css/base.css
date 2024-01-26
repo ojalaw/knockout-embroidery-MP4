@@ -713,6 +713,15 @@ input[name="default_county"] {
 .update-form {
   margin-bottom: 20px;
 }
+
+.order-number {
+  word-wrap: break-word;
+}
+
+.qty-input {
+  max-width: 60px;
+}
+
 /*---socials-footer---*/
 /*---Atheros code inspired by atheros---*/
 

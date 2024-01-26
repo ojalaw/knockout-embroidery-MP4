@@ -13,7 +13,7 @@ function handleSpinners(input) {
   $('.increment-qty').click(function(e) {
     e.preventDefault();
     
-    var input = $(this).closest('.input-group').find('.qty_input');
+    var input = $(this).closest('.input-group').find('.qty-input');
     var value = parseInt($(input).val()); 
     
     $(input).val(value + 1);
@@ -25,7 +25,7 @@ function handleSpinners(input) {
   $('.decrement-qty').click(function(e) {
     e.preventDefault();
   
-    var input = $(this).closest('.input-group').find('.qty_input');
+    var input = $(this).closest('.input-group').find('.qty-input');
     var value = parseInt($(input).val());
   
     $(input).val(value - 1);

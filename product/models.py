@@ -43,7 +43,7 @@ class Product(models.Model):
     embroidery_location = models.CharField(max_length=2,
                                            choices=EMBROIDERY_LOCATIONS,
                                            default='C', null=True, blank=True)
-    embroidery_text = models.CharField(max_length=255, null=True, blank=True)
+    embroidery_text = models.CharField(max_length=120, null=True, blank=True)
 
     def __str__(self):
         return self.name
