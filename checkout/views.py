@@ -19,7 +19,6 @@ def checkout(request):
 
     if request.method == 'POST':
         basket = request.session.get('basket', {})
-        
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -41,7 +40,8 @@ def checkout(request):
                     quantity = item_details['quantity']
                     size = item_details.get('size', '')
                     colour = item_details.get('colour', '')
-                    embroidery_location = item_details.get('embroidery_location', '')
+                    embroidery_location = item_details.get
+                    ('embroidery_location', '')
                     embroidery_text = item_details.get('embroidery_text', '')
 
                     order_line_item = OrderLineItem(
@@ -56,24 +56,23 @@ def checkout(request):
                     order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your basket wasn't found in our database. "
+                        "product in your basket NOT found in database."
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_basket'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                            args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         basket = request.session.get('basket', {})
         if not basket:
-            messages.error(request, "There's nothing in your basket at the moment")
+            messages.error(request, "Your basket is empty")
             return redirect(reverse('products'))
-        
-        
     current_basket = basket_contents(request)
     total = current_basket['grand_total']
     stripe_total = round(total * 100)
@@ -85,8 +84,8 @@ def checkout(request):
 
     if request.user.is_authenticated:
         try:
-                profile = Profile.objects.get(user=request.user)
-                order_form = OrderForm(initial={
+            profile = Profile.objects.get(user=request.user)
+            order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
@@ -98,9 +97,9 @@ def checkout(request):
                     'county': profile.default_county,
                 })
         except Profile.DoesNotExist:
-                order_form = OrderForm()
-    else:
             order_form = OrderForm()
+    else:
+        order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -109,11 +108,16 @@ def checkout(request):
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'stripe_public_key': 'pk_test_51OY7Y4Kj61YyQ9SVZdbHZ61toWUHRyHWgtt9Rpgsww9UJ1g3bPFRWJqM65Itzj98oJptgo1FDSSk0CgeDS1VwZwT00UGUYifbb',
+        'stripe_public_key': (
+            'pk_test_51OY7Y4Kj61YyQ9SVZdbHZ61toWUHRyHWgtt9R'
+            'pgsww9UJ1g3bPFRWJqM65Itzj'
+            '98oJptgo1FDSSk0CgeDS1VwZwT00UGUYifbb'
+            ),
         'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)
+
 
 def checkout_success(request, order_number):
     """
@@ -121,7 +125,6 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
         # Attach the user's profile to the order
@@ -142,14 +145,12 @@ def checkout_success(request, order_number):
         user_profile_form = ProfileUpdateForm(profile_data, instance=profile)
         if user_profile_form.is_valid():
             user_profile_form.save()
-            
     subject = "Order Confirmation"
     message = f"Thank you for your order. Your order number is {order_number}."
     from_email = "22007748@student.peterborough.ac.uk"
     recipient_list = [order.email]
 
     send_mail(subject, message, from_email, recipient_list)
-    
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')

@@ -7,31 +7,34 @@ from django.urls import reverse_lazy
 from users.models import Profile
 from checkout.models import Order
 
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}! You are now able to log in')
+            messages.success(request, f'Account created for {username}!'
+                             'You are now able to log in')
             return redirect('login')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
+
 class CustomLoginView(LoginView):
     def form_valid(self, form):
         messages.success(self.request, "You have successfully logged in.")
         return super().form_valid(form)
-    
+
+
 class CustomLogoutView(LogoutView):
-    next_page = reverse_lazy('home') 
+    next_page = reverse_lazy('home')
 
     def dispatch(self, request, *args, **kwargs):
         messages.success(request, "You have successfully logged out.")
         return super().dispatch(request, *args, **kwargs)
-    
-    
+
 
 @login_required
 def profile(request):
@@ -47,15 +50,16 @@ def profile(request):
         profile_form = ProfileUpdateForm(instance=profile)
 
     orders = Order.objects.filter(profile=profile)
-    
+
     context = {
         'profile': profile,
         'form': profile_form,
         'orders': orders,
         'on_profile_page': True
     }
-    
+
     return render(request, 'users/profile.html', context)
+
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)

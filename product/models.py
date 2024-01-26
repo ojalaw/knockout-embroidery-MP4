@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.timesince import timesince
 from django.utils import timezone
 
+
 class Product(models.Model):
     SIZE_CHOICES = (
         ('XS', 'Extra Small'),
@@ -21,7 +22,6 @@ class Product(models.Model):
         ('Yellow', 'Yellow'),
         ('Green', 'Green'),
     )
-    
     EMBROIDERY_LOCATIONS = (
         ('UL', 'Upper Left'),
         ('LL', 'Lower Left'),
@@ -33,17 +33,21 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     sku = models.CharField(max_length=100, null=True, blank=True)
-    colour = models.CharField(max_length=30, choices=COLOUR_CHOICES, default='not specified')
+    colour = models.CharField(max_length=30, choices=COLOUR_CHOICES,
+                              default='not specified')
     price = models.DecimalField(max_digits=6, decimal_places=2)
     size = models.CharField(max_length=10, choices=SIZE_CHOICES, default='M')
     stock = models.IntegerField()
     available = models.BooleanField(default=True)
     image = models.ImageField(null=True, blank=True)
-    embroidery_location = models.CharField(max_length=2, choices=EMBROIDERY_LOCATIONS, default='C', null=True, blank=True)
+    embroidery_location = models.CharField(max_length=2,
+                                           choices=EMBROIDERY_LOCATIONS,
+                                           default='C', null=True, blank=True)
     embroidery_text = models.CharField(max_length=255, null=True, blank=True)
-    
+
     def __str__(self):
         return self.name
+
 
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

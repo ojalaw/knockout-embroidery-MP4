@@ -10,7 +10,8 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'default_phone_number', 'password1', 'password2']
+        fields = ['username', 'email', 'default_phone_number',
+                  'password1', 'password2']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -24,20 +25,23 @@ class UserRegisterForm(UserCreationForm):
 
         for field in self.fields:
             if field in placeholders:
-                self.fields[field].widget.attrs['placeholder'] = placeholders[field]
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
-            self.fields[field].label = False
-            
+                self.fields[field].widget.attrs['placeholder'] = \
+                    placeholders[field]
+        self.fields[field].widget.attrs['class'] = 'border-black'
+        'rounded-0 profile-form-input'
+        self.fields[field].label = False
+
+
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['default_phone_number',   
-                  'default_street_address1', 
+        fields = ['default_phone_number',
+                  'default_street_address1',
                   'default_street_address2',
-                  'default_town_or_city', 
-                  'default_postcode', 'default_county', 
+                  'default_town_or_city',
+                  'default_postcode', 'default_county',
                   'default_country']
-        
+
     def __init__(self, *args, **kwargs):
         super(ProfileUpdateForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():

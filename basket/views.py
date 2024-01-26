@@ -4,11 +4,13 @@ from product.models import Product
 
 # Create your views here.
 
+
 def view_basket(request):
     """ A view that renders the basket contents page """
 
     request.session['show_basket_in_toast'] = False
     return render(request, 'basket/basket.html')
+
 
 def add_to_basket(request, item_id):
     """ Add a quantity of the specified product to the shopping basket """
@@ -23,7 +25,7 @@ def add_to_basket(request, item_id):
     redirect_url = request.POST.get('redirect_url')
 
     # Create a unique key for each item variant
-    unique_key = f"{item_id}_{size}_{colour}_{embroidery_location}_{embroidery_text}"
+    unique_key =f"{item_id}_{size}_{colour}_{embroidery_location}_{embroidery_text}"
 
     if unique_key in basket:
         basket[unique_key]['quantity'] += quantity
@@ -43,6 +45,7 @@ def add_to_basket(request, item_id):
     request.session['show_basket_in_toast'] = True
     return redirect(redirect_url)
 
+
 def adjust_basket(request, unique_key):
     """Adjust the quantity of the specified product variant in the basket."""
 
@@ -59,8 +62,9 @@ def adjust_basket(request, unique_key):
     messages.success(request, 'Basket updated successfully.')
     return redirect('view_basket')
 
+
 def remove_from_basket(request, unique_key):
-    """Remove the item from the shopping basket identified by the unique key."""
+    """Remove the item basket identified by the unique key."""
 
     basket = request.session.get('basket', {})
 

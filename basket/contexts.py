@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from product.models import Product
 
+
 def basket_contents(request):
     basket_items = []
     total = 0
@@ -10,7 +11,6 @@ def basket_contents(request):
     basket = request.session.get('basket', {})
 
     for unique_key, item_details in basket.items():
-        # Default values if keys are missing
         product_id = item_details.get('product_id')
         quantity = item_details.get('quantity', 0)
         size = item_details.get('size', '')
@@ -18,7 +18,7 @@ def basket_contents(request):
         embroidery_location = item_details.get('embroidery_location', '')
         embroidery_text = item_details.get('embroidery_text', '')
 
-        if product_id and quantity:  # Proceed only if product_id and quantity are present
+        if product_id and quantity:
             product = get_object_or_404(Product, pk=product_id)
             subtotal = quantity * product.price
 
