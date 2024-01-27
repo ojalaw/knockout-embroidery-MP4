@@ -118,45 +118,61 @@ Toast messages provide feedback to users about the status of their actions. For 
 
 **Sign up/login**  
 Users have the ability to sign up, using Djangos built in authenticaton process.  
+![Image of sign-up page](README-images/ke-register.png "Optional title")  
 
 **Navbar**
-The navbar is made up of icons that display the page title on hover, The 'basket' icon will be white when empty and gold when there is an item in the basket.  
+The navbar is made up of icons that display the page title on hover, The 'basket' icon will be white when empty and gold when there is an item in the basket. 
+![Image of navbar](README-images/ke-navbar.png "Optional title")  
 
 **Home page** 
 Users are presented with some textual information about the business. The page includes interactive images of 5 images that are examples of historic customer orders. When users hover over the images, they expand causing more of the image to be visible, leading to a better user experience. This is hidden on smaller screens and replaced with an image carousel.  
+![Image of home page](README-images/ke-home.png "Optional title")  
 
 **Image Carousel**  
 A Bootstrap image carousel was used on individual sports pages to enhance user experience.  
+![Image of image carousel](README-images/ke-image-carousel.png "Optional title")  
 
 **Products page** 
 Products landing page that includes all products currently availabe for purchase. Superusers can edit/delete products available for purchase here, styled using bootstrap to handle responsiveness.  
+![Image of products page](README-images/ke-products.png "Optional title")  
 
 **Product details page**
 Page for each indivdual product, users have the option to customise the product they are purchasing. They can change the size, colour, embroidery location, embroidery text and quantity. Users have the option to 'add to basket' or 'keep shopping'.  
+![Image of product details page](README-images/ke-product-details.png "Optional title")  
 
 **Profile page**
 Users are presnted with an option to update default delivery information and view their order history. Page is styled using bootstrap to handle responsiveness.  
+![Image of profile page](README-images/ke-profile.png "Optional title")  
 
 **Product admin page**
 Superusers can add products here, They can choose a name, price, description, stock and sku as well as adding an image.  
+![Image of product admin page](README-images/ke-product-admin.png "Optional title")  
 
 **Review page**
 Users can add a review here if they are authenticated. If they are not, they are presented with an option to register or login.  
+![Image of review page](README-images/ke-review.png "Optional title")  
+
 
 **Add a review page**
 This page is only accessible to users that are authenticated. Users have the option to add a review for the site. The review consists of a review title, review comment and star rating. Users are displayed with a 'submit review' and 'Back to products' buttons.   
+![Image of add review page](README-images/ke-add-review.png "Optional title")  
 
 **About us page**
 This page presents customers with more information about the business, including a spinning logo added to improve user experience. There is also a contact form for users to reach out with alternative contact information also present on the page.  
+![Image of about us page](README-images/ke-about-us.png "Optional title")  
+![Image of about us-contact page](README-images/ke-about-us-contact.png "Optional title")  
 
 **Basket**
 The basket allows users to view items in their basket. They can see all aspects of there order. I have included a 'view embroidery text' modal because when there was large amount of text, it was difficult to handle on the one page. Users can also change the quantity of product by using append and prepend buttons and updating the order, users can also remove items from their basket here.  
+![Image of basket page](README-images/ke-basket.png "Optional title")  
 
 **Checkout**
 Users are presented with details, delivery input boxes and an order summary, They input their personal information and card details underneath. Users can adjust bag or complete order using 'Adjust bag' and 'complete order' buttons. Users will recieve an email confirmation when the order is placed.  
+![Image of checkout page](README-images/ke-checkout.png "Optional title")  
 
 **Checkout Success**
 Users are presented with a 'Thankyou' message and information about their order including order details, delivery info and billing information.  
+![Image of checkout success page](README-images/ke-checkout-success.png "Optional title")   
 
 **Logout**
 Users can logout using the icon in the navbar.  
@@ -168,6 +184,7 @@ Users can navigate to respective social media sites that are present in the foot
 
 **Toast messages**
 Toast messages have been added to prompt users when siginificant actions are taken on the site such as adding to bag, adding review, registering and logging in. Toast messages have also been set up to handle errors.  
+![Image of toast messages](README-images/ke-toast.png "Optional title") 
 
 
 
