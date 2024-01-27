@@ -9,6 +9,7 @@ from checkout.models import Order
 
 
 def register(request):
+    """ A view that handles user registration """
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -38,6 +39,7 @@ class CustomLogoutView(LogoutView):
 
 @login_required
 def profile(request):
+    """ A view that handles profile updates """
     profile = get_object_or_404(Profile, user=request.user)
 
     if request.method == 'POST':
@@ -62,6 +64,7 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """ A view that handles order history """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

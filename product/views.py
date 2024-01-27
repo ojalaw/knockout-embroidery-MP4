@@ -8,6 +8,7 @@ from django.http import HttpResponseForbidden
 
 
 def reviews(request):
+    """ reviews view """
     all_reviews = Review.objects.all().order_by('-date_posted')
     context = {
         'reviews': all_reviews,
@@ -38,6 +39,7 @@ def add_review(request):
 
 @login_required
 def update_review(request, review_id):
+    """ A view that handles updating user reviews """
     review = get_object_or_404(Review, pk=review_id)
 
     if request.user != review.user:
@@ -50,12 +52,14 @@ def update_review(request, review_id):
             messages.success(request, 'Your review has been updated!')
             return redirect('reviews')
         else:
-            messages.error(request, 'Error updating your review. Please reduce number of characters.')
+            messages.error(request, 'Error updating your review.'
+                           'Please reduce number of characters.')
 
     else:
         form = ReviewForm(instance=review)
 
-    return render(request, 'product/add_reviews.html', {'form': form, 'review': review})
+    return render(request, 'product/add_reviews.html', {'form': form,
+                                                        'review': review})
 
 
 @login_required
@@ -119,9 +123,9 @@ def product_reviews(request, product_id):
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store administrators can do that.')
+        messages.error(request, 'Sorry, only store admin can do that.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -129,10 +133,11 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please ensure the'
+                           'form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'product/add_product.html'
     context = {
         'form': form,

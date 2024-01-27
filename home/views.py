@@ -27,4 +27,3 @@ def about_us(request):
         form = ContactForm()
 
     return render(request, 'home/about_us.html', {'form': form})
-    

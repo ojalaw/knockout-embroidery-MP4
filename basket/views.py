@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404, HttpResponse
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from product.models import Product
 
@@ -24,7 +24,8 @@ def add_to_basket(request, item_id):
     embroidery_text = request.POST.get('embroidery_text', '')
     redirect_url = request.POST.get('redirect_url')
 
-    unique_key =f"{item_id}_{size}_{colour}_{embroidery_location}_{embroidery_text}"
+    unique_key = f"{item_id}_{size}_{colour}_{embroidery_location}
+    _{embroidery_text}"
 
     if unique_key in basket:
         basket[unique_key]['quantity'] += quantity

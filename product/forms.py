@@ -3,17 +3,21 @@ from django.core.exceptions import ValidationError
 from .models import Review, Product
 from .widgets import CustomClearableFileInput
 
+
 class ReviewForm(forms.ModelForm):
-    title = forms.CharField(max_length=80, required=True, widget=forms.TextInput(attrs={'placeholder': 'Review Title'}))
-    comment = forms.CharField(max_length=255, required=True, widget=forms.Textarea(attrs={'placeholder': 'Enter your review here', 'rows': 4}, ))
-    
+    title = forms.CharField(max_length=80, required=True, widget=forms.
+                            TextInput(attrs={'placeholder': 'Review Title'}))
+    comment = forms.CharField(max_length=255, required=True, widget=forms.
+                              Textarea(attrs={'placeholder': 'Enter your review
+                                              here', 'rows': 4}, ))
+
     class Meta:
         model = Review
         fields = ['title', 'rating', 'comment']
         widgets = {
             'comment': forms.Textarea(),
         }
-        
+
         def clean_comment(self):
             comment = self.cleaned_data.get('comment')
             if len(comment) > 255:

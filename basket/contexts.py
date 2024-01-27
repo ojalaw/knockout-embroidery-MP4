@@ -6,6 +6,7 @@ from product.models import Product
 
 
 def basket_contents(request):
+    """ A view that handles basket contents """
     basket_items = []
     total = 0
     product_count = 0
@@ -38,7 +39,8 @@ def basket_contents(request):
             })
         except Product.DoesNotExist:
             del updated_basket[unique_key]
-            messages.info(request, f"Removed {unique_key} from your basket as it is no longer available.")
+            messages.info(request, f"Removed {unique_key} from your basket as"
+                          "it is no longer available.")
 
     if basket != updated_basket:
         request.session['basket'] = updated_basket
