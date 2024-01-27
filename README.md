@@ -118,67 +118,81 @@ Toast messages provide feedback to users about the status of their actions. For 
 
 **Sign up/login**  
 Users have the ability to sign up, using Djangos built in authenticaton process.  
+![Image of sign-up page](README-images/ke-register.png "Optional title")  
 
-**Navbar**
-The navbar is made up of icons that display the page title on hover, The 'basket' icon will be white when empty and gold when there is an item in the basket.  
+**Navbar**  
+The navbar is made up of icons that display the page title on hover, The 'basket' icon will be white when empty and gold when there is an item in the basket. 
+![Image of navbar](README-images/ke-navbar.png "Optional title")  
 
-**Home page** 
+**Home page**   
 Users are presented with some textual information about the business. The page includes interactive images of 5 images that are examples of historic customer orders. When users hover over the images, they expand causing more of the image to be visible, leading to a better user experience. This is hidden on smaller screens and replaced with an image carousel.  
+![Image of home page](README-images/ke-home.png "Optional title")  
 
-**Image Carousel**  
+**Image Carousel**   
 A Bootstrap image carousel was used on individual sports pages to enhance user experience.  
+![Image of image carousel](README-images/ke-image-carousel.png "Optional title")  
 
-**Products page** 
+**Products page**  
 Products landing page that includes all products currently availabe for purchase. Superusers can edit/delete products available for purchase here, styled using bootstrap to handle responsiveness.  
+![Image of products page](README-images/ke-products.png "Optional title")  
 
-**Product details page**
+**Product details page**  
 Page for each indivdual product, users have the option to customise the product they are purchasing. They can change the size, colour, embroidery location, embroidery text and quantity. Users have the option to 'add to basket' or 'keep shopping'.  
+![Image of product details page](README-images/ke-product-details.png "Optional title")  
 
-**Profile page**
+**Profile page**  
 Users are presnted with an option to update default delivery information and view their order history. Page is styled using bootstrap to handle responsiveness.  
+![Image of profile page](README-images/ke-profile.png "Optional title")  
 
-**Product admin page**
+**Product admin page**  
 Superusers can add products here, They can choose a name, price, description, stock and sku as well as adding an image.  
+![Image of product admin page](README-images/ke-product-admin.png "Optional title")  
 
-**Review page**
+**Review page**  
 Users can add a review here if they are authenticated. If they are not, they are presented with an option to register or login.  
+![Image of review page](README-images/ke-review.png "Optional title")  
 
-**Add a review page**
+
+**Add a review page**  
 This page is only accessible to users that are authenticated. Users have the option to add a review for the site. The review consists of a review title, review comment and star rating. Users are displayed with a 'submit review' and 'Back to products' buttons.   
+![Image of add review page](README-images/ke-add-review.png "Optional title")  
 
-**About us page**
+**About us page**  
 This page presents customers with more information about the business, including a spinning logo added to improve user experience. There is also a contact form for users to reach out with alternative contact information also present on the page.  
+![Image of about us page](README-images/ke-about-us.png "Optional title")  
+![Image of about us-contact page](README-images/ke-about-us-contact.png "Optional title")  
 
-**Basket**
+**Basket**  
 The basket allows users to view items in their basket. They can see all aspects of there order. I have included a 'view embroidery text' modal because when there was large amount of text, it was difficult to handle on the one page. Users can also change the quantity of product by using append and prepend buttons and updating the order, users can also remove items from their basket here.  
+![Image of basket page](README-images/ke-basket.png "Optional title")  
 
-**Checkout**
+**Checkout**  
 Users are presented with details, delivery input boxes and an order summary, They input their personal information and card details underneath. Users can adjust bag or complete order using 'Adjust bag' and 'complete order' buttons. Users will recieve an email confirmation when the order is placed.  
+![Image of checkout page](README-images/ke-checkout.png "Optional title")  
 
-**Checkout Success**
+**Checkout Success**  
 Users are presented with a 'Thankyou' message and information about their order including order details, delivery info and billing information.  
+![Image of checkout success page](README-images/ke-checkout-success.png "Optional title")   
 
-**Logout**
+**Logout**  
 Users can logout using the icon in the navbar.  
 
-**Footer**  
+**Footer**   
 Users can navigate to respective social media sites that are present in the footer. On non-touchscreen devices, an animation has been added causing the icons to rotate utilising SVG.  
 
 ![Image of footer](README-images/footer.png "Optional title")  
-
-**Toast messages**
+ 
+**Toast messages**  
 Toast messages have been added to prompt users when siginificant actions are taken on the site such as adding to bag, adding review, registering and logging in. Toast messages have also been set up to handle errors.  
+![Image of toast messages](README-images/ke-toast.png "Optional title") 
 
 
-
-
-
-
-
-
-
-
-### Future Implementations
+### Future Implementations  
+There are a number of different features I would add if i had more time;  
+- Give users option to upload logo.  
+- Add categories page to separate products rather than one big 'products' page.
+- Add wishlist to users profile, giving users option to add items they wish to purchase.
+- Newsletter subscription to keep customers up to date with the business.  
 
 
 ## Technologies Used
@@ -197,8 +211,14 @@ Used to run the app.
 
 ### Frameworks, Libraries & Programs Used
 
-[Bootstrap 5.3.0](https://getbootstrap.com/)  
-Boostrap was predominantly used throughout the site for responsiveness, modals to confirm deleting posts/comments and image carousel.
+[Django 5.0](https://www.djangoproject.com/)  
+Used as the backbone of the project for robust data handling, templating, and routing.  
+
+[Bootstrap 5.2.3](https://getbootstrap.com/)  
+Boostrap was predominantly used throughout the site for responsiveness, modal and image carousel.  
+
+[jQuery](https://jquery.com/)  
+I used jQuery to add functionality to Bootstrap components and within my scripts.
 
 [CDN jsdelivr](https://www.jsdelivr.com/)  
 CDN jsdeliver was used to serve static assets bootstrap and jquery to improve performance and reliability.
@@ -218,6 +238,11 @@ Balsamiq was used to create the wireframes during the design process.
 [Heroku](https://id.heroku.com/login)  
 Used to deploy the project.  
 
+[AWS](https://aws.amazon.com/)
+Used to store static files and media for deployed project.  
+
+[Stripe](https://stripe.com/gb)
+Used to handle payments securely on site.  
 
 [PostgreSQL](https://www.postgresql.org/)  
 Hosted the database used in my project.  
@@ -227,11 +252,12 @@ Visual Studio Code was use to create files pages and where i produced the code f
 
 [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)    
 Google Chrome Dev Tools was used during the testing phase to test the responsiveness of the site and to check for any bugs.
-
-
  
 [W3schools](https://www.w3schools.com/)    
 W3schools was used as a guide for HTML, CSS and Python basic principles.  
+
+[dbdiagram](https://dbdiagram.io/)
+Used to mock up database structure diagram.
 
 
 ## Testing 
@@ -257,6 +283,12 @@ The following steps will need to be taken to deploy the application using Heroku
 - Add in the following variables.
    - SECRET_KEY : Your secret key
    - DATABASE_URL: your postgres database URL
+   - STRIPE_PUBLIC_KEY: Your Stripe public key
+   - STRIPE_SECRET_KEY: Your stripe secret key
+   - USE_AWS: set to 'True'
+   - AWS_ACCESS_KEY_ID: Add sccess key ID
+   - AWS_SECRET_ACCESS_KEY: Add secret access key.
+   - GMAIL_PASSWORD: Add Gmail password from selected account for email confirmation.  
 - Deploy your project by going to the Deploy tab and choose 'Connect to Github'
 - Find your repository name and select Connect.
 
@@ -268,7 +300,7 @@ The following steps will need to be taken to deploy the application using Heroku
 
 **How to clone the repository**
 
-- Go to the (https://github.com/ojalaw/suport_MP3)  repository on GitHub.
+- Go to the (https://github.com/ojalaw/knockout-embroidery-MP4)  repository on GitHub.
 - Click the "Code" button to the right of the screen, click HTTPs and copy the link there.
 - Open a GitBash terminal and navigate to the directory where you want to locate the clone.
 - On the command line, type "git clone" then paste in the copied url and press the Enter key to begin the clone process.  
@@ -283,7 +315,59 @@ The following steps will need to be taken to deploy the application using Heroku
 
 For further guidance [click here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)  
 
-Forking this repository will allow changes to be made without affecting the original repository.
+Forking this repository will allow changes to be made without affecting the original repository.  
+
+### AWS Connection  
+
+For the use of AWS S3  buckets, I followed guidance from Code Institute learning material, this can be achieved by following the steps below.  
+
+### Creating a S3 Bucket
+
+- You will need to create an AWS account if you don't already have one
+- Go to your AWS account, and go to 'S3'
+- Click create a new bucket. Uncheck block all public access and set the Object Ownership settig with ACLs enabled. Click Create Bucket
+- On the properties tab, scroll down to 'static website hosting' and 'use this bucket to host a website'. Set the home/default page to 'index.html' and error link as 'error.html', then save.
+- On the permissions tab, go to 'CORS configuration' and copy in the below.
+``` 
+[
+   {
+   "AllowedHeaders": [
+   "Authorization"
+   ],
+   "AllowedMethods": [
+   "GET"
+   ],
+   "AllowedOrigins": [
+   "*"
+   ],
+   "ExposeHeaders": []
+   }
+   ]
+```
+- On the permissions tab, go to Bucket Policy and copy the ARN.
+- Select generate policy. Select S3 Bucket Policy under policy type. Enter * for all Principals, and the action will be GetObject. Paste in the copied ARN into the ARN field.
+- Click add statement then generate policy, and copy this policy into the Bucket policy editor.
+- Before you press save, enter a star after the slash in Resource to allow access to all resources in this bucket. Click save.
+- Go to the Access control list (ACL) tab, click edit and enable List for Everyone under the public access section.
+
+### Setting up IAM
+
+- Go to your AWS account, and go to IAM
+- Click groups and create a new group. Call it something like manage-your-site-name.
+- Go to Policy and create policy. Go to the JSON tab and select import managed policy.
+- In the dialogue box, search for S3 and import the S3 Full Access Policy.
+- Get the ARN from your S3 bucket and paste it into the resources with and without the trailing *. It should look like this:
+```
+"RESOURCE": [
+   "arn:aws....",
+   "arn:aws..../*",
+]
+```
+- Click review policy. Give it a name and description. Click create policy.
+- Go back to groups and click your group to manage it. Go to the permissions tab, open Add Permissions and click Attach Policy. Search for your policy by it's name and select it. Click Add Permissions.
+- Go to Users and click Add User. Name your user something like your-site-name-static-files-user. Give them programmatic access. Select next.
+- Add the user to your group. Click through to the end and click Create User.
+- Download the CSV to get the users access key and secret access key. Ensure you download it now, because you won't be able to access it again.
 
 ## Credits
 
