@@ -187,15 +187,12 @@ Toast messages have been added to prompt users when siginificant actions are tak
 ![Image of toast messages](README-images/ke-toast.png "Optional title") 
 
 
-
-
-
-
-
-
-
-
-### Future Implementations
+### Future Implementations  
+There are a number of different features I would add if i had more time;  
+- Give users option to upload logo.  
+- Add categories page to separate products rather than one big 'products' page.
+- Add wishlist to users profile, giving users option to add items they wish to purchase.
+- Newsletter subscription to keep customers up to date with the business.  
 
 
 ## Technologies Used
@@ -214,8 +211,14 @@ Used to run the app.
 
 ### Frameworks, Libraries & Programs Used
 
-[Bootstrap 5.3.0](https://getbootstrap.com/)  
-Boostrap was predominantly used throughout the site for responsiveness, modals to confirm deleting posts/comments and image carousel.
+[Django 5.0](https://www.djangoproject.com/)  
+Used as the backbone of the project for robust data handling, templating, and routing.  
+
+[Bootstrap 5.2.3](https://getbootstrap.com/)  
+Boostrap was predominantly used throughout the site for responsiveness, modal and image carousel.  
+
+[jQuery](https://jquery.com/)  
+I used jQuery to add functionality to Bootstrap components and within my scripts.
 
 [CDN jsdelivr](https://www.jsdelivr.com/)  
 CDN jsdeliver was used to serve static assets bootstrap and jquery to improve performance and reliability.
@@ -235,6 +238,11 @@ Balsamiq was used to create the wireframes during the design process.
 [Heroku](https://id.heroku.com/login)  
 Used to deploy the project.  
 
+[AWS](https://aws.amazon.com/)
+Used to store static files and media for deployed project.  
+
+[Stripe](https://stripe.com/gb)
+Used to handle payments securely on site.  
 
 [PostgreSQL](https://www.postgresql.org/)  
 Hosted the database used in my project.  
@@ -244,11 +252,12 @@ Visual Studio Code was use to create files pages and where i produced the code f
 
 [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)    
 Google Chrome Dev Tools was used during the testing phase to test the responsiveness of the site and to check for any bugs.
-
-
  
 [W3schools](https://www.w3schools.com/)    
 W3schools was used as a guide for HTML, CSS and Python basic principles.  
+
+[dbdiagram](https://dbdiagram.io/)
+Used to mock up database structure diagram.
 
 
 ## Testing 
@@ -274,6 +283,12 @@ The following steps will need to be taken to deploy the application using Heroku
 - Add in the following variables.
    - SECRET_KEY : Your secret key
    - DATABASE_URL: your postgres database URL
+   - STRIPE_PUBLIC_KEY: Your Stripe public key
+   - STRIPE_SECRET_KEY: Your stripe secret key
+   - USE_AWS: set to 'True'
+   - AWS_ACCESS_KEY_ID: Add sccess key ID
+   - AWS_SECRET_ACCESS_KEY: Add secret access key.
+   - GMAIL_PASSWORD: Add Gmail password from selected account for email confirmation.  
 - Deploy your project by going to the Deploy tab and choose 'Connect to Github'
 - Find your repository name and select Connect.
 
@@ -285,7 +300,7 @@ The following steps will need to be taken to deploy the application using Heroku
 
 **How to clone the repository**
 
-- Go to the (https://github.com/ojalaw/suport_MP3)  repository on GitHub.
+- Go to the (https://github.com/ojalaw/knockout-embroidery-MP4)  repository on GitHub.
 - Click the "Code" button to the right of the screen, click HTTPs and copy the link there.
 - Open a GitBash terminal and navigate to the directory where you want to locate the clone.
 - On the command line, type "git clone" then paste in the copied url and press the Enter key to begin the clone process.  
