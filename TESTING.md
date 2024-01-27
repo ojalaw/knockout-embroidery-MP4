@@ -39,6 +39,35 @@ The site has been run through [W3C](https://validator.w3.org/), [WC3 CSS](https:
 
 All pages passed lighthouse testing scoring particularly highly throughout.  
 
+**Home**  
+Desktop lighthouse score [here](README-images/light-home-desktop.png "Optional title")  
+
+Mobile lighthouse score [here](README-images/light-home-mobile.png "Optional title")  
+
+**Products**  
+Desktop lighthouse score [here](README-images/light-products-desktop.png "Optional title")  
+
+Mobile lighthouse score [here](README-images/light-products-mobile.png "Optional title")  
+
+**Product detail**  
+Desktop lighthouse score [here](README-images/light-product-detail-desktop.png "Optional title")  
+
+Mobile lighthouse score [here](README-images/light-product-detail-mobile.png "Optional title") 
+
+**Reviews**  
+Desktop lighthouse score [here](README-images/light-reviews-desktop.png "Optional title")  
+
+Mobile lighthouse score [here](README-images/light-reviews-mobile.png "Optional title") 
+
+**About us**  
+Desktop lighthouse score [here](README-images/light-about-desktop.png "Optional title")  
+
+Mobile lighthouse score [here](README-images/light-about-mobile.png "Optional title")  
+
+**Basket**  
+Desktop lighthouse score [here](README-images/light-basket-desktop.png "Optional title")  
+
+Mobile lighthouse score [here](README-images/light-basket-mobile.png "Optional title")  
 
 
 ## Browser Compatibility 
@@ -63,20 +92,13 @@ All pages passed lighthouse testing scoring particularly highly throughout.
 | HONOR Magic5 Pro         | Android 13.0     | None  |
 | iPhone 13 pro            | iOS 16.6         | None  |
 
-## Automated Testing  
-I decided to employ a certain degree of automated testing during the project in the form of unittest, the python built-in module for writing/testing. The tests can be found in the test_views.py file and are summarised below.  
+## Automated Testing   
 
-**Sanity Testing**  
-The SanityTest class contains a basic sanity test. It verifies fundamental functionality by testing a simple addition function (add_numbers). This ensures that the most basic operations of the environment are working as expected.  
+**Sanity Testing**   
 
-**Feature Testing**  
-The TestPostFeature class performs feature testing for creating posts and adding comments. It tests the functionality of the application's features by sending POST requests to the routes handling post creation (/football-post) and comment addition (/add-comment/football/1). It checks if the correct status code (302, indicating a redirect) is returned, which implies successful execution of these features.  
+**Feature Testing**    
 
 **Endpoint Testing**  
-The TestOverviewRoute and TestSportsRoutes classes are focused on endpoint testing. They test various routes of the application to ensure they are functioning as expected:  
-
-TestOverviewRoute tests the main overview route ('/'), verifying that it returns a 200 status code and contains specific content in the response.  
-TestSportsRoutes tests several sports-related routes (/football-post, /formula1-post, /rugby-post). It checks that these routes return a 302 status code and redirect to the login page, indicating that the routes are accessible but require user authentication.  
 
  
 
