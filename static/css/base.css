@@ -684,23 +684,6 @@ input[name="default_county"] {
     object-fit: cover;
 }
 
-/*---toasts---*/
-
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
 /*---basket---*/
 
 .basket-btns {
@@ -863,7 +846,7 @@ input[name="default_county"] {
 .navbar-toggler {
   position: absolute;
   right: 10px; 
-  bottom: 10px; 
+  bottom: 10px;v   
 }
 
 .navbar .container-fluid {
