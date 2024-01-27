@@ -120,20 +120,67 @@ I have kept the basic functionality of the site the same throughout the entire p
 
 **Home**
 
-
- - The feature works as expected. 
+ - Navbar links - The feature works as expected. 
+ - Interactive image gallery - The feature works as expected.
+ - Browse Products button -  The feature works as expected.
+ - Search bar -  The feature works as expected. 
+ 
 
 **Profile** 
 
-
- - The feature works as expected.  
+- Update Default Delivery Information - The feature works as expected.
+- Accessing order history -  The feature works as expected.
+- Country dropdown/Django countries -  The feature works as expected. 
 
 **Products**
 
- - The feature works as expected.  
+- Product images have black border on hover - The feature works as expected.  
+- Bootstrap breakpoints - The feature works as expected.
+- Edit and Delete buttons -  The feature works as expected, present for superusers, not present for normal users.
+- Toast messages - The feature works as expected, both for edit and delete buttons.
+
+  **Product details**
+
+  - Model fields for the product - All product fields ar avilable for selection.
+  - Keep shopping/Add to basket - Buttons work as expected regarding styling and url.
+  - Product images have black border on hover - The feature works as expected.
+  - Edit/Delete buttons for superusers - Present for superusers but not for standard users.
+
+**Reviews**  
+
+- Add review button - The feature works as expected, users are taken to the add review page.
+- Review container - Users can enter title, comment and star rating.
+- Edit review - The feature works as expected.
+- Error handling regarding character limit - Users are limited to the number of characters they can add to review.
+- Time display - The feature works as expected, time is displayed as (time ago) rather than actual date.
+
+**About** 
+
+- Rotating logo - The feature works as expected.
+- Contact us form - Users can add to contact form.
+- send message button - Button submits form and displays toast message.
+
+**Basket** 
+
+- Product info displayed in basket - Product info is present.
+- View embroidery text model - The feature works as expected.
+- Quantity buttons - quantity is reflected by use of buttons.
+- Update/remove buttons - The feature works as expected.
+- Keep shopping/Secure checkout buttons - The feature works as expected, buttons take user to correct url.
+
+**Checkout** 
+- User details - The feature works as expected, form populates.
+- Delivery details - The feature works as expected, form populates.
+- payment details - The feature works as expected, form populates.
+- order summary - Product info is present.
+
+**Checkout Success** 
+- Thank you message - The feature works as expected.
+- order info - The feature works as expected, content is present.
+- toast message - The feature works as expected.
+- confirmation email - User recieves confirmation email.
 
 
-**Reviews**
 
 **Usability**  
 
@@ -142,12 +189,14 @@ I have kept the basic functionality of the site the same throughout the entire p
 
 I used the following break points for responsiveness.  
 
-- 450px  
+- 500px  
 - 768px  
-- 992px  
-- 1200px
+- 992px
+- 1090px
+- 1264px
+- 1492px
 
-Generic bootstrap breakpoints were also used sporadically throughout the site.  
+Generic bootstrap breakpoints were also used throughout the site.  
 
 ## Bug Reporting
 Throughout the development phase of the site, I came across a variety of different bugs/errors that eventually overcame.  
