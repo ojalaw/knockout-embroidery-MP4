@@ -315,7 +315,59 @@ The following steps will need to be taken to deploy the application using Heroku
 
 For further guidance [click here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)  
 
-Forking this repository will allow changes to be made without affecting the original repository.
+Forking this repository will allow changes to be made without affecting the original repository.  
+
+### AWS Connection  
+
+For the use of AWS S3  buckets, I followed guidance from Code Institute learning material, this can be achieved by following the steps below.  
+
+### Creating a S3 Bucket
+
+- You will need to create an AWS account if you don't already have one
+- Go to your AWS account, and go to 'S3'
+- Click create a new bucket. Uncheck block all public access and set the Object Ownership settig with ACLs enabled. Click Create Bucket
+- On the properties tab, scroll down to 'static website hosting' and 'use this bucket to host a website'. Set the home/default page to 'index.html' and error link as 'error.html', then save.
+- On the permissions tab, go to 'CORS configuration' and copy in the below.
+``` 
+[
+   {
+   "AllowedHeaders": [
+   "Authorization"
+   ],
+   "AllowedMethods": [
+   "GET"
+   ],
+   "AllowedOrigins": [
+   "*"
+   ],
+   "ExposeHeaders": []
+   }
+   ]
+```
+- On the permissions tab, go to Bucket Policy and copy the ARN.
+- Select generate policy. Select S3 Bucket Policy under policy type. Enter * for all Principals, and the action will be GetObject. Paste in the copied ARN into the ARN field.
+- Click add statement then generate policy, and copy this policy into the Bucket policy editor.
+- Before you press save, enter a star after the slash in Resource to allow access to all resources in this bucket. Click save.
+- Go to the Access control list (ACL) tab, click edit and enable List for Everyone under the public access section.
+
+### Setting up IAM
+
+- Go to your AWS account, and go to IAM
+- Click groups and create a new group. Call it something like manage-your-site-name.
+- Go to Policy and create policy. Go to the JSON tab and select import managed policy.
+- In the dialogue box, search for S3 and import the S3 Full Access Policy.
+- Get the ARN from your S3 bucket and paste it into the resources with and without the trailing *. It should look like this:
+```
+"RESOURCE": [
+   "arn:aws....",
+   "arn:aws..../*",
+]
+```
+- Click review policy. Give it a name and description. Click create policy.
+- Go back to groups and click your group to manage it. Go to the permissions tab, open Add Permissions and click Attach Policy. Search for your policy by it's name and select it. Click Add Permissions.
+- Go to Users and click Add User. Name your user something like your-site-name-static-files-user. Give them programmatic access. Select next.
+- Add the user to your group. Click through to the end and click Create User.
+- Download the CSV to get the users access key and secret access key. Ensure you download it now, because you won't be able to access it again.
 
 ## Credits
 
