@@ -1,5 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
+from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from product.models import Product
 
@@ -9,6 +10,7 @@ def basket_contents(request):
     total = 0
     product_count = 0
     basket = request.session.get('basket', {})
+    updated_basket = basket.copy()
 
     for unique_key, item_details in basket.items():
         product_id = item_details.get('product_id')
@@ -18,23 +20,28 @@ def basket_contents(request):
         embroidery_location = item_details.get('embroidery_location', '')
         embroidery_text = item_details.get('embroidery_text', '')
 
-        if product_id and quantity:
-            product = get_object_or_404(Product, pk=product_id)
+        try:
+            product = Product.objects.get(pk=product_id)
             subtotal = quantity * product.price
+            total += subtotal
+            product_count += quantity
 
-        total += subtotal
-        product_count += quantity
+            basket_items.append({
+                'unique_key': unique_key,
+                'quantity': quantity,
+                'product': product,
+                'size': size,
+                'colour': colour,
+                'embroidery_location': embroidery_location,
+                'embroidery_text': embroidery_text,
+                'subtotal': subtotal
+            })
+        except Product.DoesNotExist:
+            del updated_basket[unique_key]
+            messages.info(request, f"Removed {unique_key} from your basket as it is no longer available.")
 
-        basket_items.append({
-            'unique_key': unique_key,
-            'quantity': quantity,
-            'product': product,
-            'size': size,
-            'colour': colour,
-            'embroidery_location': embroidery_location,
-            'embroidery_text': embroidery_text,
-            'subtotal': subtotal
-        })
+    if basket != updated_basket:
+        request.session['basket'] = updated_basket
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
