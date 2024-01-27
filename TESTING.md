@@ -202,6 +202,14 @@ Generic bootstrap breakpoints were also used throughout the site.
 Throughout the development phase of the site, I came across a variety of different bugs/errors that eventually overcame.  
 
 **resolved**
+-	static files temporary fix followed by permanent fix
+-	import issue with home.views
+-	Allowed hosts added for local testing
+-	Css folder not registering causing console error
+-	404 error when logging user in
+-	Application error when logging in user/superuser, hadn’t migrate local database.
+-	Heroku migrations error
+
 
 
 
