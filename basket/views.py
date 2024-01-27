@@ -8,35 +8,13 @@ from product.models import Product
 def view_basket(request):
     """ A view that renders the basket contents page """
 
-    basket = request.session.get('basket', {})
-    updated_basket = basket.copy()
-
-    for unique_key in basket.keys():
-        product_id = basket[unique_key]['product_id']
-        try:
-            Product.objects.get(pk=product_id)
-        except Product.DoesNotExist:
-            del updated_basket[unique_key]
-            messages.info(request, "One of the products in your basket was removed as it is no longer available.")
-
-    if basket != updated_basket:
-        request.session['basket'] = updated_basket
-
     request.session['show_basket_in_toast'] = False
-    return render(request, 'basket/basket.html', {'basket': updated_basket})
+    return render(request, 'basket/basket.html')
 
 
 def add_to_basket(request, item_id):
     """ Add a quantity of the specified product to the shopping basket """
     basket = request.session.get('basket', {})
-    
-    for unique_key in list(basket.keys()):
-        product_id = basket[unique_key]['product_id']
-        try:
-            Product.objects.get(pk=product_id)
-        except Product.DoesNotExist:
-            del basket[unique_key]
-            messages.info(request, "A product in your basket has been removed as it is no longer available.")
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))

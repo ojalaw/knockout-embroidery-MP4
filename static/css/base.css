@@ -42,7 +42,7 @@ body {
   /*---button---*/
 
   .btn {
-    background-color: black;
+    background-color: var(--secondary-color);
     color: white; 
     border-radius: 5px;
     border: none;
@@ -51,7 +51,7 @@ body {
   }
 
   .search-btn {
-    background-color: black;
+    background-color: var(--secondary-color);
     color: white; 
     border-radius: 5px;
     border: none;
@@ -61,16 +61,6 @@ body {
     background-color: white; 
     color: black;
     border: 2px solid black;
-  }
-  
-  /*---primary action buttons---*/  
-  
-  .btn-main {
-    background-color: black;
-  }
-  
-  .btn-main:hover {
-    border-color: black;
   }
 
   /*---home---*/
@@ -619,7 +609,11 @@ input[name="default_county"] {
 
 /*---navbar---*/
 
-.navbar-dark .navbar-nav .nav-link {
+.navbar-custom {
+  background-color: var(--secondary-color);
+}
+
+.navbar-custom .navbar-nav .nav-link {
   padding: 5px 10px;
   border-radius: 5px;
 }
@@ -631,7 +625,7 @@ input[name="default_county"] {
 
 .navbar .nav-link:hover,
 .navbar .nav-item form .btn-link:hover, 
-.navbar-dark .navbar-nav .nav-link:focus {
+.navbar-custom .navbar-nav .nav-link:focus {
     background-color: white;
     border-radius: 5px; 
 }
@@ -677,6 +671,10 @@ input[name="default_county"] {
   .navbar .nav-link .basket-link.basket-active i {
       color: gold;
   }
+
+.navbar-title {
+  color:white;
+}
   
 /*---images---*/
 
@@ -865,8 +863,7 @@ input[name="default_county"] {
 .navbar-toggler {
   position: absolute;
   right: 10px; 
-  bottom: 10px;
-  z-index: 9999; 
+  bottom: 10px; 
 }
 
 .navbar .container-fluid {
