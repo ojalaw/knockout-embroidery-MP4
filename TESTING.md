@@ -23,16 +23,23 @@ The site has been run through [W3C](https://validator.w3.org/), [WC3 CSS](https:
 
 **HTML** 
 
+![Image of validator testing](README-images/w3c-validator-ke.png "Optional title")  
 
-**CSS**
-
-
-**Javascript**
-
-
-**Python**
+- No errors were present during validation.  
+- 9 Warnings were present, 7 of which were aria label errors in navbar.
+   
+**CSS**  
 
 
+**Javascript**  
+
+There were no errors when running javascript file through JShint validator.  
+
+**Python**  
+
+I had to correct some errors regarding characters exceeding 79 and 2 lines not present between dunctions. There are no errors when running python files through pep8 validator, There were also no errors present in the terminal or console.  
+
+![Image of pep8 validator testing](README-images/pep8-py.png "Optional title")
 
 
 ## Lighthouse Testing  
