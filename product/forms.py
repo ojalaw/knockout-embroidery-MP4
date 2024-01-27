@@ -8,8 +8,8 @@ class ReviewForm(forms.ModelForm):
     title = forms.CharField(max_length=80, required=True, widget=forms.
                             TextInput(attrs={'placeholder': 'Review Title'}))
     comment = forms.CharField(max_length=255, required=True, widget=forms.
-                              Textarea(attrs={'placeholder': 'Enter your review
-                                              here', 'rows': 4}, ))
+                          Textarea(attrs={'placeholder': 'Enter your review'
+                                          'here', 'rows': 4}, ))
 
     class Meta:
         model = Review

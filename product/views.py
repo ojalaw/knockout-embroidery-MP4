@@ -52,13 +52,12 @@ def update_review(request, review_id):
             messages.success(request, 'Your review has been updated!')
             return redirect('reviews')
         else:
-            messages.error(request, 'Error updating your review.'
-                           'Please reduce number of characters.')
+            messages.error(request, 'Error updating your review.')
 
     else:
         form = ReviewForm(instance=review)
 
-    return render(request, 'product/add_reviews.html', {'form': form,
+    return render(request, 'product/reviews.html', {'form': form,
                                                         'review': review})
 
 

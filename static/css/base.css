@@ -474,7 +474,7 @@ input[name="default_county"] {
 }
 
 .star-rating .filled-star, .star-rating .empty-star {
-  font-size: 24px; 
+  font-size: 44px; 
   color: gold; 
   -webkit-text-stroke: 3px black; 
 }
@@ -516,10 +516,12 @@ input[name="default_county"] {
 }
 
 .star-rating-edit {
-  direction: ltr;
-  font-size: 24px;
-  text-align: center;
-  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-bottom: 20px; 
 }
 
 .star-rating-edit input[type="radio"] {
@@ -533,7 +535,7 @@ input[name="default_county"] {
 
 .star-rating-edit input[type="radio"]:checked ~ label {
   color: gold;
-  -webkit-text-stroke: 1px black; 
+  -webkit-text-stroke: 3px black; 
 }
 
 
