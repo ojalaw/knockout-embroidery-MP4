@@ -62,30 +62,43 @@ Business owner - I want to be able to place bulk orders and customize products w
 
 ### Colour Scheme
 
+Initial colour scheme is general dark theme for a contemporary look, I have included navy blue and white as accent colours which will also provide good accessibility scores.  
+
+![Image of color pallete in the project](README-images/color-wheel.png "Colour Scheme")
+
 
 
 ### Typography
 
-
+The font used throughout the site is 'Roboto Mono', I have chosen this font because I consider it to be clean and easy to read.  
 
 ### Layout
 
-
+The layout of the Suport website is built using the Bootstrap framework, which provides a responsive grid system that allows the website to adapt to different screen sizes and devices. The use of a grid system helps to create a consistent layout on necessary pages of the website, which makes navigation and exploration more intuitive for visitors.  
 
 ### Accessibility  
-
-
  
 
 ### Imagery  
-
-
+Used a combination of imagery from Pixabay (See media below) and images from Knockout Embroidery business, I have business owners permission to use the imagery. Images are all of a similar size and quality for consistency throughout the site.
 
 ### Wireframes
+[Suport Wireframe](README-images/knockout-embroidery-wireframes.pdf "Link to project wireframe")  
+There have been some changes since the wireframe was created. The initial plan for the site was The 'About us' and 'Contact' pages to be separate but i merged them because i didn't think it was necessary for there to be two pages. The general principle remains the same throughout the site.
 
 ### Data Model  
 
+See database schema [here](README-images/db-schema.pdf "Link to database schema")
+See database schema Relationships [here](README-images/db-schema-links.pdf "Link to database schema links")  
 
+The following datbase models were used;
+Orders - 
+Order line items -
+Products -
+Users -
+Contacts - 
+Profiles - 
+Reviews - 
 
 
 ### Security  
