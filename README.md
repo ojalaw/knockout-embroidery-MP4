@@ -83,12 +83,12 @@ The layout of the Suport website is built using the Bootstrap framework, which p
 Used a combination of imagery from Pixabay (See media below) and images from Knockout Embroidery business, I have business owners permission to use the imagery. Images are all of a similar size and quality for consistency throughout the site.
 
 ### Wireframes
-[Suport Wireframe](README-images/knockout-embroidery-wireframes.pdf "Link to project wireframe")  
+[Knockout Embroidery Wireframe](README-images/knockout-embroidery-wireframes.pdf "Link to project wireframe")  
 There have been some changes since the wireframe was created. The initial plan for the site was The 'About us' and 'Contact' pages to be separate but i merged them because i didn't think it was necessary for there to be two pages. The general principle remains the same throughout the site.
 
 ### Data Model  
 
-See database schema [here](README-images/db-schema.pdf "Link to database schema")
+See database schema [here](README-images/db-schema.pdf "Link to database schema")  
 See database schema Relationships [here](README-images/db-schema-links.pdf "Link to database schema links")  
 
 The following datbase models were used;
@@ -100,17 +100,82 @@ Contacts -
 Profiles - 
 Reviews - 
 
-
-### Security  
-
-
+A number of different security considerations were taken into account when putting together this project.  
 
 **Use of .env file**  
+Important credentials including DATABASE_URL, SECRET_KEY, STRIPE keys, AWS ACCESS KEYS and GMAIL passwords are located within .env file which is subsequently in a .gitignore file to ensure it remains secure. SECRET_KEY was initially located in settings.py file, it has since been changed and moved to a more secure location in .env file, the database was also subsequently destroyed and rebuilt to produce a different DATABASE_URL.  
+
+**Defensive Programming**  
+Measures have been put in place throughout the site to prevent users from doing things they are not authorised to do. For example, Users can only access the product admin panel if they are superusers. Users can not access the profile page unless they are authenticated and can also not add reviews.  
+
+**Feedback to Users**  
+Toast messages provide feedback to users about the status of their actions. For example, 'successful login or reasons for authentication failure'.  
 
 
 ## Features
 
 ### General features  
+
+**Sign up/login**  
+Users have the ability to sign up, using Djangos built in authenticaton process.  
+
+**Navbar**
+The navbar is made up of icons that display the page title on hover, The 'basket' icon will be white when empty and gold when there is an item in the basket.  
+
+**Home page** 
+Users are presented with some textual information about the business. The page includes interactive images of 5 images that are examples of historic customer orders. When users hover over the images, they expand causing more of the image to be visible, leading to a better user experience. This is hidden on smaller screens and replaced with an image carousel.  
+
+**Image Carousel**  
+A Bootstrap image carousel was used on individual sports pages to enhance user experience.  
+
+**Products page** 
+Products landing page that includes all products currently availabe for purchase. Superusers can edit/delete products available for purchase here, styled using bootstrap to handle responsiveness.  
+
+**Product details page**
+Page for each indivdual product, users have the option to customise the product they are purchasing. They can change the size, colour, embroidery location, embroidery text and quantity. Users have the option to 'add to basket' or 'keep shopping'.  
+
+**Profile page**
+Users are presnted with an option to update default delivery information and view their order history. Page is styled using bootstrap to handle responsiveness.  
+
+**Product admin page**
+Superusers can add products here, They can choose a name, price, description, stock and sku as well as adding an image.  
+
+**Review page**
+Users can add a review here if they are authenticated. If they are not, they are presented with an option to register or login.  
+
+**Add a review page**
+This page is only accessible to users that are authenticated. Users have the option to add a review for the site. The review consists of a review title, review comment and star rating. Users are displayed with a 'submit review' and 'Back to products' buttons.   
+
+**About us page**
+This page presents customers with more information about the business, including a spinning logo added to improve user experience. There is also a contact form for users to reach out with alternative contact information also present on the page.  
+
+**Basket**
+The basket allows users to view items in their basket. They can see all aspects of there order. I have included a 'view embroidery text' modal because when there was large amount of text, it was difficult to handle on the one page. Users can also change the quantity of product by using append and prepend buttons and updating the order, users can also remove items from their basket here.  
+
+**Checkout**
+Users are presented with details, delivery input boxes and an order summary, They input their personal information and card details underneath. Users can adjust bag or complete order using 'Adjust bag' and 'complete order' buttons. Users will recieve an email confirmation when the order is placed.  
+
+**Checkout Success**
+Users are presented with a 'Thankyou' message and information about their order including order details, delivery info and billing information.  
+
+**Logout**
+Users can logout using the icon in the navbar.  
+
+**Footer**  
+Users can navigate to respective social media sites that are present in the footer. On non-touchscreen devices, an animation has been added causing the icons to rotate utilising SVG.  
+
+![Image of footer](README-images/footer.png "Optional title")  
+
+**Toast messages**
+Toast messages have been added to prompt users when siginificant actions are taken on the site such as adding to bag, adding review, registering and logging in. Toast messages have also been set up to handle errors.  
+
+
+
+
+
+
+
+
 
 
 ### Future Implementations
