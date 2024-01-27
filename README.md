@@ -260,7 +260,8 @@ W3schools was used as a guide for HTML, CSS and Python basic principles.
 Used to mock up database structure diagram.
 
 
-## Testing 
+## Testing  
+Testing process can be found [here](https://github.com/ojalaw/knockout-embroidery-MP4/blob/main/TESTING.md) 
 
 
 
