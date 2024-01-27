@@ -389,6 +389,14 @@ input[name="default_county"] {
   margin-left: auto;
 }
 
+.review-container {
+  overflow-wrap: break-word;
+}
+
+.review-title, .review-comment {
+  word-break: break-word;
+}
+
 /*---add-review---*/
 
 .review-form-container {
@@ -706,14 +714,6 @@ input[name="default_county"] {
   max-width: 60px;
 }
 
-.review-container {
-  overflow-wrap: break-word;
-}
-
-.review-title, .review-comment {
-  word-break: break-word;
-}
-
 /*---socials-footer---*/
 /*---Atheros code inspired by atheros---*/
 
@@ -846,11 +846,11 @@ input[name="default_county"] {
 .navbar-toggler {
   position: absolute;
   right: 10px; 
-  bottom: 10px;v   
+  bottom: 10px;
 }
 
 .navbar .container-fluid {
-    text-align: center; 
+    text-align: center;
 }
 
 .navbar-brand {
