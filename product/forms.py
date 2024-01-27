@@ -5,7 +5,7 @@ from .widgets import CustomClearableFileInput
 
 class ReviewForm(forms.ModelForm):
     title = forms.CharField(max_length=80, required=True, widget=forms.TextInput(attrs={'placeholder': 'Review Title'}))
-    comment = forms.CharField(max_length=255, required=True, widget=forms.Textarea(attrs={'placeholder': 'Enter your review here', 'rows': 4}))
+    comment = forms.CharField(max_length=255, required=True, widget=forms.Textarea(attrs={'placeholder': 'Enter your review here', 'rows': 4}, ))
     
     class Meta:
         model = Review
@@ -22,8 +22,14 @@ class ReviewForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ReviewForm, self).__init__(*args, **kwargs)
-        self.fields['title'].widget.attrs.update({'placeholder': 'Review Title'})
-        self.fields['comment'].widget.attrs.update({'placeholder': 'Enter your review here'})
+        self.fields['title'].widget.attrs.update({
+            'placeholder': 'Review Title',
+            'aria-label': 'Review Title'
+        })
+        self.fields['comment'].widget.attrs.update({
+            'placeholder': 'Enter your review here',
+            'aria-label': 'Review Comment'
+        })
 
 
 class ProductForm(forms.ModelForm):

@@ -4,8 +4,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="Knockout Embroidery is a company that specialises in personalised embroidery and a range of different products  ">
+    <meta name="keywords" content="Knockout embroidery, UK embroidery, embroidery, Custom embroidery, clothing embroidery, accessory embroidery">
     <meta name="csrf-token" content="{{ csrf_token }}">
     <title>{% block title %}Home{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -23,9 +23,9 @@
   <header>
     <form method="GET" action="{% url 'products' %}">
       <div class="input-group w-100">
-          <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+          <input class="form-control border border-black rounded-0" type="text" name="q" aria-label="Search our site" placeholder="Search our site">
           <div class="input-group-append">
-              <button class="form-control search-btn rounded-0" type="submit">
+              <button class="form-control search-btn rounded-0" type="submit" aria-label="Search">
                   <span class="icon">
                       <i class="fas fa-search"></i>
                   </span>
@@ -56,34 +56,34 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-collapsed-icons">
 
         <li class="nav-item">          
-          <a class="nav-link" href="{% url 'home' %}"><i class="fa-solid fa-house" alt="Home" title="Home Page"></i></a> 
+          <a class="nav-link" href="{% url 'home' %}"><i class="fa-solid fa-house" aria-label="Home" title="Home Page"></i></a> 
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'products' %}" role="button"> 
-            <i class="fa-sharp fa-solid fa-shirt" alt="Products" title="Products"></i>
+            <i class="fa-sharp fa-solid fa-shirt" aria-label="Products" title="Products"></i>
           </a>
         </li>
         {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" id="profile" href="{% url 'profile' %}"><i class="fa-solid fa-user" alt="Profile" title="Profile"></i></a>
+              <a class="nav-link" id="profile" href="{% url 'profile' %}"><i class="fa-solid fa-user" aria-label="Profile" title="Profile"></i></a>
             </li>
             {% if request.user.is_superuser %}
             <li class="nav-item">
-              <a class="nav-link" id="product admin" href="{% url 'add_product' %}" class="dropdown-item"><i class="fa-solid fa-gear" alt="Product admin" title="Product admin"></i></a>
+              <a class="nav-link" id="product admin" href="{% url 'add_product' %}" class="dropdown-item"><i class="fa-solid fa-gear" aria-label="Product admin" title="Product admin"></i></a>
             </li>
             {% endif %}
             {% endif %}
             <li class="nav-item">
-              <a class="nav-link" id="review" href="{% url 'reviews' %}"><i class="fa-solid fa-magnifying-glass" alt="Reviews" title="Reviews"></i></a>
+              <a class="nav-link" id="review" href="{% url 'reviews' %}"><i class="fa-solid fa-magnifying-glass" aria-label="Reviews" title="Reviews"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="about" href="{% url 'about_us' %}"><i class="fa-solid fa-circle-info" alt="About us" title="About us"></i></a>
+              <a class="nav-link" id="about" href="{% url 'about_us' %}"><i class="fa-solid fa-circle-info" aria-label="About us" title="About us"></i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="basket" href="{% url 'view_basket' %}">
                   <div class="basket-link {% if grand_total > 0 %}basket-active{% endif %}">
-                    <i class="fa-solid fa-basket-shopping" alt="Basket" title="Basket"></i>
+                    <i class="fa-solid fa-basket-shopping" aria-label="Basket" title="Basket"></i>
                   </div>
               </a>
           </li>
@@ -91,15 +91,15 @@
             <li class="nav-item">
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn nav-link"><i class="fa-solid fa-right-from-bracket" alt="Logout" title="Logout"></i></button>
+                    <button type="submit" class="btn nav-link"><i class="fa-solid fa-right-from-bracket" aria-label="Logout" title="Logout"></i></button>
                 </form>
             </li>
         {% else %}
             <li class="nav-item">
-              <a class="nav-link" id="login" href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket" alt="Login" title="Login"></i></a>
+              <a class="nav-link" id="login" href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket" aria-label="Login" title="Login"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="signUp" href="{% url 'register' %}"><i class="fa-solid fa-user-plus" alt="Register" title="Register"></i></a>
+              <a class="nav-link" id="signUp" href="{% url 'register' %}"><i class="fa-solid fa-user-plus" aria-label="Register" title="Register"></i></a>
             </li>
             {% endif %}
       </ul>

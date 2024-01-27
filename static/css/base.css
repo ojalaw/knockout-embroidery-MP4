@@ -162,7 +162,7 @@ body {
 }
 
 .product-info {
-  text-align: centre;
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -462,7 +462,7 @@ input[name="default_county"] {
 
 .star-rating input[type="radio"]:checked ~ label {
   color: #f5eb3b;
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 3px black;
 }
 
 .review-form-container h1 {
@@ -476,7 +476,7 @@ input[name="default_county"] {
 .star-rating .filled-star, .star-rating .empty-star {
   font-size: 24px; 
   color: gold; 
-  -webkit-text-stroke: 1px black; 
+  -webkit-text-stroke: 3px black; 
 }
 
 .star-rating .empty-star {
