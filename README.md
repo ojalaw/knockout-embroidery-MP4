@@ -56,7 +56,7 @@ Returning customer - I want to log in to my account and view my previous orders,
 Embroidery collector - I want to be able to search and filter products based on specific criteria like material, style, and artist, So that I can find unique and high-quality pieces to add to my collection.  
 
 **User Story 4:**  
-Business owner - I want to be able to place bulk orders and customize products with my company’s branding, So that I can efficiently acquire uniform embroidery that represents my company’s identity.  
+Business owner - I want users to be abvle to access my site, I want it to have a simplistic look and feel to it.  
 
 ## Design  
 
@@ -92,16 +92,15 @@ There have been some changes since the wireframe was created. The initial plan f
 ### Data Model  
 
 See database schema [here](README-images/db-schema.pdf "Link to database schema")  
-See database schema Relationships [here](README-images/db-schema-links.pdf "Link to database schema links")  
 
 The following datbase models were used;  
-Orders -  
-Order line items -  
-Products -  
-Users -  
-Contacts -  
-Profiles -  
-Reviews -  
+Orders -  used to store users oreder information.  
+Order line items -  used to handle order infromation in basket.  
+Products -  Used to add information about products on site.  
+Users -  Used in user registration.  
+Contacts -  Used for customer contact form.  
+Profiles -  Used to enable users to access order history and update default deilvery information.  
+Reviews -  Used for users to add reviews on the site.  
 
 ### Security    
 
