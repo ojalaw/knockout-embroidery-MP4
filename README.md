@@ -46,16 +46,16 @@ Link to live site:
 
 ### User Stories
 
-**User Story 1:** 
+**User Story 1:**  
 First time customer - I want to easily navigate the website and understand the services offered, So that I can find the embroidery products I need without confusion and make my first purchase smoothly.  
 
-**User Story 2:** 
+**User Story 2:**  
 Returning customer - I want to log in to my account and view my previous orders, So that I can reorder products I liked or track the status of my current orders.  
 
-**User Story 3:** 
+**User Story 3:**  
 Embroidery collector - I want to be able to search and filter products based on specific criteria like material, style, and artist, So that I can find unique and high-quality pieces to add to my collection.  
 
-**User Story 4:** 
+**User Story 4:**  
 Business owner - I want to be able to place bulk orders and customize products with my company’s branding, So that I can efficiently acquire uniform embroidery that represents my company’s identity.  
 
 ## Design  
@@ -77,6 +77,9 @@ The font used throughout the site is 'Roboto Mono', I have chosen this font beca
 The layout of the Suport website is built using the Bootstrap framework, which provides a responsive grid system that allows the website to adapt to different screen sizes and devices. The use of a grid system helps to create a consistent layout on necessary pages of the website, which makes navigation and exploration more intuitive for visitors.  
 
 ### Accessibility  
+
+Image alt, aria labels, colour contrast.  
+**more content**
  
 
 ### Imagery  
@@ -91,16 +94,18 @@ There have been some changes since the wireframe was created. The initial plan f
 See database schema [here](README-images/db-schema.pdf "Link to database schema")  
 See database schema Relationships [here](README-images/db-schema-links.pdf "Link to database schema links")  
 
-The following datbase models were used;
-Orders - 
-Order line items -
-Products -
-Users -
-Contacts - 
-Profiles - 
-Reviews - 
+The following datbase models were used;  
+Orders -  
+Order line items -  
+Products -  
+Users -  
+Contacts -  
+Profiles -  
+Reviews -  
 
-A number of different security considerations were taken into account when putting together this project.  
+### Security    
+
+A number of different security considerations were taken into account when putting together this project.    
 
 **Use of .env file**  
 Important credentials including DATABASE_URL, SECRET_KEY, STRIPE keys, AWS ACCESS KEYS and GMAIL passwords are located within .env file which is subsequently in a .gitignore file to ensure it remains secure. SECRET_KEY was initially located in settings.py file, it has since been changed and moved to a more secure location in .env file, the database was also subsequently destroyed and rebuilt to produce a different DATABASE_URL.  
@@ -118,60 +123,74 @@ Toast messages provide feedback to users about the status of their actions. For 
 
 **Sign up/login**  
 Users have the ability to sign up, using Djangos built in authenticaton process.  
+
 ![Image of sign-up page](README-images/ke-register.png "Optional title")  
 
 **Navbar**  
-The navbar is made up of icons that display the page title on hover, The 'basket' icon will be white when empty and gold when there is an item in the basket. 
+The navbar is made up of icons that display the page title on hover, The 'basket' icon will be white when empty and gold when there is an item in the basket.  
+
 ![Image of navbar](README-images/ke-navbar.png "Optional title")  
 
 **Home page**   
 Users are presented with some textual information about the business. The page includes interactive images of 5 images that are examples of historic customer orders. When users hover over the images, they expand causing more of the image to be visible, leading to a better user experience. This is hidden on smaller screens and replaced with an image carousel.  
+
 ![Image of home page](README-images/ke-home.png "Optional title")  
 
 **Image Carousel**   
 A Bootstrap image carousel was used on individual sports pages to enhance user experience.  
+
 ![Image of image carousel](README-images/ke-image-carousel.png "Optional title")  
 
 **Products page**  
 Products landing page that includes all products currently availabe for purchase. Superusers can edit/delete products available for purchase here, styled using bootstrap to handle responsiveness.  
+
 ![Image of products page](README-images/ke-products.png "Optional title")  
 
 **Product details page**  
 Page for each indivdual product, users have the option to customise the product they are purchasing. They can change the size, colour, embroidery location, embroidery text and quantity. Users have the option to 'add to basket' or 'keep shopping'.  
+
 ![Image of product details page](README-images/ke-product-details.png "Optional title")  
 
 **Profile page**  
 Users are presnted with an option to update default delivery information and view their order history. Page is styled using bootstrap to handle responsiveness.  
+
 ![Image of profile page](README-images/ke-profile.png "Optional title")  
 
 **Product admin page**  
 Superusers can add products here, They can choose a name, price, description, stock and sku as well as adding an image.  
+
 ![Image of product admin page](README-images/ke-product-admin.png "Optional title")  
 
 **Review page**  
 Users can add a review here if they are authenticated. If they are not, they are presented with an option to register or login.  
+
 ![Image of review page](README-images/ke-review.png "Optional title")  
 
 
 **Add a review page**  
 This page is only accessible to users that are authenticated. Users have the option to add a review for the site. The review consists of a review title, review comment and star rating. Users are displayed with a 'submit review' and 'Back to products' buttons.   
+
 ![Image of add review page](README-images/ke-add-review.png "Optional title")  
 
 **About us page**  
 This page presents customers with more information about the business, including a spinning logo added to improve user experience. There is also a contact form for users to reach out with alternative contact information also present on the page.  
+
 ![Image of about us page](README-images/ke-about-us.png "Optional title")  
 ![Image of about us-contact page](README-images/ke-about-us-contact.png "Optional title")  
 
 **Basket**  
 The basket allows users to view items in their basket. They can see all aspects of there order. I have included a 'view embroidery text' modal because when there was large amount of text, it was difficult to handle on the one page. Users can also change the quantity of product by using append and prepend buttons and updating the order, users can also remove items from their basket here.  
+
 ![Image of basket page](README-images/ke-basket.png "Optional title")  
 
 **Checkout**  
 Users are presented with details, delivery input boxes and an order summary, They input their personal information and card details underneath. Users can adjust bag or complete order using 'Adjust bag' and 'complete order' buttons. Users will recieve an email confirmation when the order is placed.  
+
 ![Image of checkout page](README-images/ke-checkout.png "Optional title")  
 
 **Checkout Success**  
 Users are presented with a 'Thankyou' message and information about their order including order details, delivery info and billing information.  
+
 ![Image of checkout success page](README-images/ke-checkout-success.png "Optional title")   
 
 **Logout**  
@@ -184,6 +203,7 @@ Users can navigate to respective social media sites that are present in the foot
  
 **Toast messages**  
 Toast messages have been added to prompt users when siginificant actions are taken on the site such as adding to bag, adding review, registering and logging in. Toast messages have also been set up to handle errors.  
+
 ![Image of toast messages](README-images/ke-toast.png "Optional title") 
 
 
@@ -224,7 +244,7 @@ I used jQuery to add functionality to Bootstrap components and within my scripts
 CDN jsdeliver was used to serve static assets bootstrap and jquery to improve performance and reliability.
 
 [Google Fonts](https://fonts.google.com/)  
-Used to import 'Ubuntu' font.  
+Used to import 'Roboto Mono' font.  
 
 [Font awesome](https://fontawesome.com/)  
 Used to import icons on to the site to improve user experience.  
@@ -238,10 +258,10 @@ Balsamiq was used to create the wireframes during the design process.
 [Heroku](https://id.heroku.com/login)  
 Used to deploy the project.  
 
-[AWS](https://aws.amazon.com/)
+[AWS](https://aws.amazon.com/)  
 Used to store static files and media for deployed project.  
 
-[Stripe](https://stripe.com/gb)
+[Stripe](https://stripe.com/gb)  
 Used to handle payments securely on site.  
 
 [PostgreSQL](https://www.postgresql.org/)  
@@ -256,7 +276,7 @@ Google Chrome Dev Tools was used during the testing phase to test the responsive
 [W3schools](https://www.w3schools.com/)    
 W3schools was used as a guide for HTML, CSS and Python basic principles.  
 
-[dbdiagram](https://dbdiagram.io/)
+[dbdiagram](https://dbdiagram.io/)  
 Used to mock up database structure diagram.
 
 
@@ -308,7 +328,7 @@ The following steps will need to be taken to deploy the application using Heroku
 
 **How to Fork the repository**  
 
-- Go to the https://github.com/ojalaw/suport_MP3 repository on GitHub.
+- Go to the https://github.com/ojalaw/knockout-embroidery-MP4 repository on GitHub.
 - Click on the 'Fork' option towards the top left of the page.  
 - Click the dropdown button and click 'create a new fork'.  
 - This will bring up a page with details of the repository, fill in boxes as required.
@@ -372,7 +392,12 @@ For the use of AWS S3  buckets, I followed guidance from Code Institute learning
 
 ## Credits
 
-### Code Used
+### Code Used  
+
+- Code institute learning material Boutique Ado walkthrough.  
+- [Django documentation](https://docs.djangoproject.com/en/5.0/)  
+- [Stripe Documentation](https://stripe.com/docs/payments)  
+- [Corey Schafer Django Tutorial](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)  
 
 
 ### Content
@@ -380,8 +405,27 @@ For the use of AWS S3  buckets, I followed guidance from Code Institute learning
 
 ###  Media
 
+I used Images from Pixabay for the items currently on the product page.  
+
 **Images**  
 
+tshirt - https://pixabay.com/photos/t-shirt-white-clothes-rags-empty-1278404/ - versionFrancaise  
+polo - https://pixabay.com/photos/adult-casual-caucasian-glasses-1851571/ - Pexel  
+hoodie - https://pixabay.com/photos/portrait-male-young-hoodie-1236732/ - GG_BenQ_Gambit  
+jumper - https://pixabay.com/photos/stomach-pain-man-jeans-sweater-2821941/ - Derneuemann  
+hat - https://pixabay.com/photos/fashion-model-woman-young-woman-1844724/ - Pexels  
+shorts - https://pixabay.com/photos/clothes-fashion-studio-1838144/ - Engin akyurt  
+
+Other images were used in the site, taken from [Knockout Embroidery](https://www.knockoutembroidery.co.uk/) with the owners permission.  
+
+**Site Content**  
+
+Some of the text within the site is very similar to what is present on [Knockout Embroidery](https://www.knockoutembroidery.co.uk/). This site is going to replace the current website that the business uses.  
+
   
-###  Acknowledgments
+###  Acknowledgments  
+
+Code Institute mentors  
+- Chris Quinn  
+- Daisy Mc Girr  
  
