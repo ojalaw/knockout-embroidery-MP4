@@ -30,6 +30,8 @@ The site has been run through [W3C](https://validator.w3.org/), [WC3 CSS](https:
    
 **CSS**  
 
+parse errors?
+
 
 **Javascript**  
 
@@ -76,6 +78,8 @@ Desktop lighthouse score [here](README-images/light-basket-desktop.png "Optional
 
 Mobile lighthouse score [here](README-images/light-basket-mobile.png "Optional title")  
 
+Pages that require authentication??
+
 
 ## Browser Compatibility 
   
@@ -100,6 +104,8 @@ Mobile lighthouse score [here](README-images/light-basket-mobile.png "Optional t
 | iPhone 13 pro            | iOS 16.6         | None  |
 
 ## Automated Testing   
+
+Is this required??
 
 **Sanity Testing**   
 
@@ -184,6 +190,8 @@ I have kept the basic functionality of the site the same throughout the entire p
 
 **Usability**  
 
+- During testing, some users felt that the image carousel would be better on smaller devices instead of the interactive images.  
+
 
 **Responsiveness**  
 
@@ -201,7 +209,15 @@ Generic bootstrap breakpoints were also used throughout the site.
 ## Bug Reporting
 Throughout the development phase of the site, I came across a variety of different bugs/errors that eventually overcame.  
 
-**resolved**
+**resolved**  
+-	static files temporary fix followed by permanent fix, I added disable static to config vars. However, the introduction of AWS S3 bucket was more of a permanent solution.  
+-	import issue with home.views
+-	Allowed hosts added for local testing
+-	Css folder not registering causing console error
+-	404 error when logging user in
+-	Application error when logging in user/superuser, hadn’t migrate local database.
+-	Heroku migrations error
+
 
 
 
@@ -210,4 +226,4 @@ Throughout the development phase of the site, I came across a variety of differe
 
 
 
-[Back to README.md](https://github.com/ojalaw/knockout-embroidery-MP4)
+[Back to README.md](https://github.com/ojalaw/knockout-embroidery-MP4/blob/main/README.md)
