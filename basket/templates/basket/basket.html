@@ -83,7 +83,8 @@
                                             <input class="form-control form-control-sm qty_input" type="number"
                                                 name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                                 data-item_id="{{ item.item_id }}"
-                                                id="id_qty_{{ item.item_id }}">
+                                                id="id_qty_{{ item.item_id }}"
+                                                aria-label = "item quantity">
                                             <div class="input-group-append">
                                                 <button class="increment-qty btn btn-sm rounded-0" aria-label="Quantity button plus"
                                                     data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
@@ -114,14 +115,14 @@
                         </tr>
                         <tr>
                             <td colspan="5" class="text-right">
-                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                <a href="{% url 'products' %}" class="btn rounded-0 btn-lg">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                    <span class="text-uppercase">Keep Shopping</span>
+                                    <span>Keep Shopping</span>
                                 </a>
-                                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                                    <span class="text-uppercase">Secure Checkout</span>
+                                <a href="{% url 'checkout' %}" class="btn rounded-0 btn-lg">
+                                    <span>Secure Checkout</span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
                                     </span>
@@ -132,11 +133,11 @@
                 </div>
             {% else %}
                 <p class="lead mb-5">Your basket is empty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <a href="{% url 'products' %}" class="btn rounded-0 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
-                        <span class="text-uppercase">Keep Shopping</span>
+                        <span>Keep Shopping</span>
                     </a>
                 {% endif %}
             </div>
@@ -177,18 +178,6 @@ $('#embroideryTextModal').on('show.bs.modal', function (event) {
         var modal = $(this);
         modal.find('.modal-body').text(embroideryText);
     });
-
-document.addEventListener('DOMContentLoaded', function() {
-    var closeButton = document.querySelector('.btn-close');
-    if (closeButton) {
-        closeButton.addEventListener('touchstart', function(event) {
-            var modal = closeButton.closest('.modal');
-            if (modal) {
-                $(modal).modal('hide');
-            }
-        });
-    }
-});
     </script>
 
 {% endblock %}

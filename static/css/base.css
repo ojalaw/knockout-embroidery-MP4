@@ -301,6 +301,10 @@ input[name="default_county"] {
 
 /*---reviews---*/
 
+.review-text {
+  text-align: center;
+}
+
 .review-container {
   width: 80%;
 }
@@ -441,12 +445,19 @@ input[name="default_county"] {
 /*---star---*/
 
 .star-rating {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   flex-direction: row-reverse;
   justify-content: flex-end;
   margin-top: 10px;
   margin-bottom: 20px; 
+  
+}
+
+.stars-background {
+  display: inline-block;
+  background-color:black;
+  border-radius: 5px;
 }
 
 .star-rating input[type="radio"] {
@@ -461,7 +472,7 @@ input[name="default_county"] {
 }
 
 .star-rating input[type="radio"]:checked ~ label {
-  color: #f5eb3b;
+  color:gold;
   -webkit-text-stroke: 3px black;
 }
 
@@ -475,13 +486,13 @@ input[name="default_county"] {
 
 .star-rating .filled-star, .star-rating .empty-star {
   font-size: 44px; 
-  color: gold; 
+  color:gold;
   -webkit-text-stroke: 3px black; 
 }
 
 .star-rating .empty-star {
   color: lightgray;
-  -webkit-text-stroke: 1px black; 
+  -webkit-text-stroke: 3px black; 
 }
 
 

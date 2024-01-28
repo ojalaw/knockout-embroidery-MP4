@@ -18,6 +18,7 @@
                 <h3 class="review-title">{{ review.title }}</h3>
                 <div class="user-and-rating">
                     <p class="review-user"><strong>User:</strong> {{ review.user.username }}</p>
+                    <div class="stars-background">
                         <div class="star-rating">
                         {% for i in "12345" %}
                             {% if forloop.counter <= review.rating %}
@@ -27,6 +28,7 @@
                             {% endif %}
                         {% endfor %}
                     </div>
+                </div>
                 </div>
                 <p class="review-comment"><strong>Comment:</strong> {{ review.comment }}</p>
                 <div class="review-footer">
@@ -46,16 +48,18 @@
         <div class="review-edit-form" id="review-edit-form-{{ review.id }}" style="display: none;">
             <form method="post" action="{% url 'update_review' review.id %}">
                 {% csrf_token %}
-                <input type="text" name="title" value="{{ review.title }}" required>
-                <textarea name="comment">{{ review.comment }}</textarea>
+                <input type="text" name="title" value="{{ review.title }}" aria-label="Review title" required>
+                <textarea name="comment" aria-label="Review comment">{{ review.comment }}</textarea>
 
                 <div class="star-rating">
+                    <div class="stars-background">
                     {% for star in "54321" %}
                         <input type="radio" id="star{{ star }}-{{ review.id }}" name="rating" value="{{ star }}"
                                {% if review.rating == star %} checked {% endif %}/>
                         <label for="star{{ star }}-{{ review.id }}">&#9733;</label>
                     {% endfor %}
                 </div>
+            </div>
 
 
                 <button type="submit" class ="btn">Save Changes</button>
@@ -65,7 +69,7 @@
     {% endif %}
         </div>
     {% empty %}
-        <p>No reviews yet.</p>
+        <p class="review-text">No reviews yet.</p>
     {% endfor %}
 {% endblock %}
 
