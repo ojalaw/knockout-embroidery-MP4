@@ -733,6 +733,10 @@ input[name="default_county"] {
   max-width: 60px;
 }
 
+.modal {
+  z-index: 9999;
+}
+
 /*---socials-footer---*/
 /*---Atheros code inspired by atheros---*/
 
