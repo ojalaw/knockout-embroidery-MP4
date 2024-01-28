@@ -3,9 +3,9 @@ This project is the development of an e-commerce web application for Knockout Em
 
 This is Milestone Project 4 for a Level 5 Diploma in Web Application Development.    
 
+![alt text](README-images/ke-mockup.png "Website Mockup")  
 
-
-Link to live site: 
+Link to live site: [Knockout Embroidery](https://knockout-embroidery-32949738fa37.herokuapp.com/products/)
 
 ## CONTENTS
 
