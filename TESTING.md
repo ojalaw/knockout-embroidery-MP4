@@ -30,7 +30,10 @@ The site has been run through [W3C](https://validator.w3.org/), [WC3 CSS](https:
    
 **CSS**  
 
-parse errors?
+![Image of css validator testing](README-images/w3c-css.png "Optional title")  
+
+- No errors were present during validation.  
+- 16 errors present in bootstrap CSS but no errors in base.css.  
 
 
 **Javascript**  
@@ -147,10 +150,10 @@ I have kept the basic functionality of the site the same throughout the entire p
 
   **Product details**
 
-  - Model fields for the product - All product fields ar avilable for selection.
-  - Keep shopping/Add to basket - Buttons work as expected regarding styling and url.
-  - Product images have black border on hover - The feature works as expected.
-  - Edit/Delete buttons for superusers - Present for superusers but not for standard users.
+- Model fields for the product - All product fields ar avilable for selection.
+- Keep shopping/Add to basket - Buttons work as expected regarding styling and url.
+- Product images have black border on hover - The feature works as expected.
+- Edit/Delete buttons for superusers - Present for superusers but not for standard users.
 
 **Reviews**  
 
@@ -190,7 +193,12 @@ I have kept the basic functionality of the site the same throughout the entire p
 
 **Usability**  
 
-- During testing, some users felt that the image carousel would be better on smaller devices instead of the interactive images.  
+During testing;
+
+- some users felt that the image carousel would be better on smaller devices instead of the interactive images.
+- It was noted that the collapsible navbar wasnt very clear and needed to be a lighter colour.
+- Some users felt that the collapsible navbar needed titles instead of just icons.
+- Some users felt that the stars on the review page needed a background colour to enhance colour contrast.  
 
 
 **Responsiveness**  
