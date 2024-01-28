@@ -619,6 +619,10 @@ input[name="default_county"] {
 
 /*---navbar---*/
 
+.nav-text {
+  display: none;
+}
+
 .navbar-custom {
   background-color: var(--secondary-color);
 }
@@ -837,6 +841,11 @@ input[name="default_county"] {
 
 @media (max-width: 991px) {
 
+  .nav-text {
+    display: inline;
+    color: white;
+  }
+
   .navbar-collapsed-icons {
     text-align: left;
   }
@@ -881,6 +890,10 @@ input[name="default_county"] {
 
 .profile-section {
   margin-bottom: 15px;
+}
+
+.navbar-toggler {
+  background-color: white;
 }
 
 }

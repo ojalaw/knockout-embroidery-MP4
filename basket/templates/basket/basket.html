@@ -46,8 +46,8 @@
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#embroideryTextModal{{ forloop.counter }}">
                                         View Embroidery Text
                                     </button><br>
-                                    <div class="modal fade" id="embroideryTextModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="embroideryTextModalLabel{{ forloop.counter }}" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                    <div class="modal fade" id="embroideryTextModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="embroideryTextModalLabel{{ forloop.counter }}" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="embroideryTextModalLabel{{ forloop.counter }}">Embroidery Text</h5>
@@ -177,6 +177,18 @@ $('#embroideryTextModal').on('show.bs.modal', function (event) {
         var modal = $(this);
         modal.find('.modal-body').text(embroideryText);
     });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var closeButton = document.querySelector('.btn-close');
+    if (closeButton) {
+        closeButton.addEventListener('touchstart', function(event) {
+            var modal = closeButton.closest('.modal');
+            if (modal) {
+                $(modal).modal('hide');
+            }
+        });
+    }
+});
     </script>
 
 {% endblock %}

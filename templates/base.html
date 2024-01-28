@@ -56,34 +56,50 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-collapsed-icons">
 
         <li class="nav-item">          
-          <a class="nav-link" href="{% url 'home' %}"><i class="fa-solid fa-house" aria-label="Home" title="Home Page"></i></a> 
+          <a class="nav-link" href="{% url 'home' %}">
+            <i class="fa-solid fa-house" aria-label="Home" ></i>
+            <span class="nav-text">Home</span></a> 
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'products' %}" role="button"> 
-            <i class="fa-sharp fa-solid fa-shirt" aria-label="Products" title="Products"></i>
+            <i class="fa-sharp fa-solid fa-shirt" aria-label="Products" ></i>
+            <span class="nav-text">Products</span>
           </a>
         </li>
         {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" id="profile" href="{% url 'profile' %}"><i class="fa-solid fa-user" aria-label="Profile" title="Profile"></i></a>
+              <a class="nav-link" id="profile" href="{% url 'profile' %}">
+                <i class="fa-solid fa-user" aria-label="Profile" ></i>
+                <span class="nav-text">Profile</span>
+              </a>
             </li>
             {% if request.user.is_superuser %}
             <li class="nav-item">
-              <a class="nav-link" id="product admin" href="{% url 'add_product' %}" class="dropdown-item"><i class="fa-solid fa-gear" aria-label="Product admin" title="Product admin"></i></a>
+              <a class="nav-link" id="product admin" href="{% url 'add_product' %}">
+                <i class="fa-solid fa-gear" aria-label="Product admin" ></i>
+                <span class="nav-text">Product admin</span>
+              </a>
             </li>
             {% endif %}
             {% endif %}
             <li class="nav-item">
-              <a class="nav-link" id="review" href="{% url 'reviews' %}"><i class="fa-solid fa-magnifying-glass" aria-label="Reviews" title="Reviews"></i></a>
+              <a class="nav-link" id="review" href="{% url 'reviews' %}">
+                <i class="fa-solid fa-magnifying-glass" aria-label="Reviews"></i>
+                <span class="nav-text">Reviews</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="about" href="{% url 'about_us' %}"><i class="fa-solid fa-circle-info" aria-label="About us" title="About us"></i></a>
+              <a class="nav-link" id="about" href="{% url 'about_us' %}">
+                <i class="fa-solid fa-circle-info" aria-label="About us"></i>
+                <span class="nav-text">About us</span>
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="basket" href="{% url 'view_basket' %}">
                   <div class="basket-link {% if grand_total > 0 %}basket-active{% endif %}">
-                    <i class="fa-solid fa-basket-shopping" aria-label="Basket" title="Basket"></i>
+                    <i class="fa-solid fa-basket-shopping" aria-label="Basket"></i>
+                    <span class="nav-text">Basket</span>
                   </div>
               </a>
           </li>
@@ -91,20 +107,28 @@
             <li class="nav-item">
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn nav-link"><i class="fa-solid fa-right-from-bracket" aria-label="Logout" title="Logout"></i></button>
+                    <button type="submit" class="btn nav-link">
+                      <i class="fa-solid fa-right-from-bracket" aria-label="Logout"></i>
+                      <span class="nav-text">Logout</span>
+                    </button>
                 </form>
             </li>
         {% else %}
             <li class="nav-item">
-              <a class="nav-link" id="login" href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket" aria-label="Login" title="Login"></i></a>
+              <a class="nav-link" id="login" href="{% url 'login' %}">
+                <i class="fa-solid fa-right-to-bracket" aria-label="Login"></i>
+                <span class="nav-text">Login</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="signUp" href="{% url 'register' %}"><i class="fa-solid fa-user-plus" aria-label="Register" title="Register"></i></a>
+              <a class="nav-link" id="signUp" href="{% url 'register' %}">
+                <i class="fa-solid fa-user-plus" aria-label="Register"></i>
+                <span class="nav-text">Register</span>
+              </a>
             </li>
             {% endif %}
       </ul>
     </div>
-
   </div>
 </nav>
 </header>
