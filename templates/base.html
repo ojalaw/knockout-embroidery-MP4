@@ -20,6 +20,7 @@
     {% endblock %}
   </head>
 <body>
+  <div class="content-wrap">
   <header>
     <form method="GET" action="{% url 'products' %}">
       <div class="input-group w-100">
@@ -150,11 +151,11 @@
             {% endfor %}
         </div>
     {% endif %}
-
+    <main>
 {% block content %}{% endblock %}
-
+</main>
+</div>
 <!-- Footer -->
-
 <footer>
     <div class="footer-background">
         <ul class="social-media-buttons">
