@@ -10,8 +10,6 @@ This site has been tested using the following testing procedures
 
 * [Browser Compatibility](#Browser-Compatibility)
 
-* [Automatic Testing](#Automatic-Testing)
-
 * [Manual Testing](#Manual-Testing)
 
 * [Bug Reporting](#Bug-Reporting)
@@ -81,8 +79,6 @@ Desktop lighthouse score [here](README-images/light-basket-desktop.png "Optional
 
 Mobile lighthouse score [here](README-images/light-basket-mobile.png "Optional title")  
 
-Pages that require authentication??
-
 
 ## Browser Compatibility 
   
@@ -106,89 +102,57 @@ Pages that require authentication??
 | HONOR Magic5 Pro         | Android 13.0     | None  |
 | iPhone 13 pro            | iOS 16.6         | None  |
 
-## Automated Testing   
-
-Is this required??
-
-**Sanity Testing**   
-
-**Feature Testing**    
-
-**Endpoint Testing**  
-
- 
-
 ## Manual Testing  
 
 During the manual testing, I tested the sites functionality, usability and responsiveness.  
 
-I have kept the basic functionality of the site the same throughout the entire project. Initially leaning towards a note/review site, moving towards a social media site that allows users to create, edit and delete posts.  
-
 
 #### Functionality
 
-**Home**
-
- - Navbar links - The feature works as expected. 
- - Interactive image gallery - The feature works as expected.
- - Browse Products button -  The feature works as expected.
- - Search bar -  The feature works as expected. 
- 
-
-**Profile** 
-
-- Update Default Delivery Information - The feature works as expected.
-- Accessing order history -  The feature works as expected.
-- Country dropdown/Django countries -  The feature works as expected. 
-
-**Products**
-
-- Product images have black border on hover - The feature works as expected.  
-- Bootstrap breakpoints - The feature works as expected.
-- Edit and Delete buttons -  The feature works as expected, present for superusers, not present for normal users.
-- Toast messages - The feature works as expected, both for edit and delete buttons.
-
-  **Product details**
-
-- Model fields for the product - All product fields ar avilable for selection.
-- Keep shopping/Add to basket - Buttons work as expected regarding styling and url.
-- Product images have black border on hover - The feature works as expected.
-- Edit/Delete buttons for superusers - Present for superusers but not for standard users.
-
-**Reviews**  
-
-- Add review button - The feature works as expected, users are taken to the add review page.
-- Review container - Users can enter title, comment and star rating.
-- Edit review - The feature works as expected.
-- Error handling regarding character limit - Users are limited to the number of characters they can add to review.
-- Time display - The feature works as expected, time is displayed as (time ago) rather than actual date.
-
-**About** 
-
-- Rotating logo - The feature works as expected.
-- Contact us form - Users can add to contact form.
-- send message button - Button submits form and displays toast message.
-
-**Basket** 
-
-- Product info displayed in basket - Product info is present.
-- View embroidery text model - The feature works as expected.
-- Quantity buttons - quantity is reflected by use of buttons.
-- Update/remove buttons - The feature works as expected.
-- Keep shopping/Secure checkout buttons - The feature works as expected, buttons take user to correct url.
-
-**Checkout** 
-- User details - The feature works as expected, form populates.
-- Delivery details - The feature works as expected, form populates.
-- payment details - The feature works as expected, form populates.
-- order summary - Product info is present.
-
-**Checkout Success** 
-- Thank you message - The feature works as expected.
-- order info - The feature works as expected, content is present.
-- toast message - The feature works as expected.
-- confirmation email - User recieves confirmation email.
-
+| Test                                          | action                                                                | expected                                                    | Result |
+| --------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------- | ------ |
+| Test navbar links                             | Click each navbar link                                                | To move between the different pages                         | PASS   |
+| Interactive image gallery                     | Hover over images with mouse                                          | Image expands on hover                                      | PASS   |
+| Browse products button                        | Click browse products button                                          | to be take to the products page                             | PASS   |
+| Profile                                       |                                                                       |                                                             |        |
+| Update Default delivery information           | Enter different delivery infromation                                  | The information to update                                   | PASS   |
+| Access order History                          | Click order history                                                   | to be displayed with a previous order history               | PASS   |
+| Country dropdown/Django countries             | Select different country using the dropdown                           | to be able to select country using dropdown                 | PASS   |
+| Products                                      |                                                                       |                                                             |        |
+| Images have border on hover                   | Hover over image with cursor                                          | Image to have black border on hover                         | PASS   |
+| Page to be responsive                         | Change screen size                                                    | Content to be responsive and adapt depending on screen size | PASS   |
+| Edit and delete buttons                       | click edit/delete button                                              | products were edited/deleted aaccordingly                   | PASS   |
+| Toast messages                                | Added item to basket                                                  | Toast message to display item in basket                     | PASS   |
+| Product details                               |                                                                       |                                                             |        |
+| Customising product prior to adding to basket | Changed size, colour, embroidery details                              | to have the ability to change customisable products         | PASS   |
+| Buttons                                       | Keep shopping clicked                                                 | to be taken to products page                                | PASS   |
+| Buttons                                       | Add to basket button clicked                                          | Items to be added to basket                                 | PASS   |
+| Superuser options                             | click edit/delete button                                              | Buttons work accordingly                                    | PASS   |
+| Reviews                                       |                                                                       |                                                             |        |
+| Add review button                             | Clicked add review button                                             | Taken to 'Add review' page                                  | PASS   |
+| Review container                              | Click add review                                                      | Title, comment and rating options appear                    | PASS   |
+| Edit Review                                   | Click edit review button                                              | Title, comment and rating to be editable                    | PASS   |
+| Error handling regarding character limit      | Add more than the allowed characters                                  | Toast message error                                         | PASS   |
+| Time display                                  | Add a review                                                          | Time is displayed as 'time ago' rather than actual date.    | PASS   |
+| About                                         |                                                                       |                                                             |        |
+| Rotating logo                                 | Access about page                                                     | does logo appear spinning slowly                            | PASS   |
+| Contact us form                               | Fill in contact form and submit                                       | to be able to fill form in                                  | PASS   |
+| Send message button                           | Click send message after contact form filled in                       | Contact form to submit                                      | PASS   |
+| Basket                                        |                                                                       |                                                             |        |
+| Basket display                                | Product added to basket                                               | Product is present in basket                                | PASS   |
+| View embroidery text modal                    | Click 'view embroidery text'                                          | Text is present in modal                                    | PASS   |
+| Quantity buttons                              | Click '-' and '+' buttons                                             | quantity changes accordingly                                | PASS   |
+| Update/remove buttons                         | click update/delete                                                   | Item is deleted from basket/quantity updated                | PASS   |
+| checkout                                      |                                                                       |                                                             |        |
+| User details                                  | Fill In user details forms                                            | User details to be displayed                                | PASS   |
+| Delivery details                              | Fill in delivery details                                              | delivery details to be displayed                            | PASS   |
+| Payment details                               | Fill in payment details                                               | Payment details to be displayed                             | PASS   |
+| Order Summary                                 | view product in checkout                                              | Product to be present                                       | PASS   |
+| Checkout Success                              |                                                                       |                                                             |        |
+| Thankyou message                              | Complete order                                                        | Thankyou message displayed                                  | PASS   |
+| Order info                                    | Order info is displayed                                               | To be dable to see order info                               | PASS   |
+| Toast messages                                | Toast message confirms order and notifies user of confirmation emails | To see toast message                                        | PASS   |
+| Confirmation email                            | Complete checkout                                                     | To receive confirmation email                               | PASS   |
 
 
 **Usability**  
@@ -217,7 +181,7 @@ Generic bootstrap breakpoints were also used throughout the site.
 ## Bug Reporting
 Throughout the development phase of the site, I came across a variety of different bugs/errors that eventually overcame.  
 
-**resolved**  
+**Resolved**  
 -	static files temporary fix followed by permanent fix, I added disable static to config vars. However, the introduction of AWS S3 bucket was more of a permanent solution.  
 -	import issue with home.views
 -	Allowed hosts added for local testing
@@ -227,9 +191,10 @@ Throughout the development phase of the site, I came across a variety of differe
 -	Heroku migrations error
 
 
+**Unresolved**  
 
-
-**Unresolved**
+- Sometimes on apple mobile devices, 'view text embroidery' modal cannot be closed and the page needs to be refreshed instead.
+- Stars display from right to left when viewed on reviews.html and when editing. This was not initally planned but still displays the correct rating.
 
 
 
