@@ -58,6 +58,34 @@ Embroidery collector - I want to be able to search and filter products based on 
 **User Story 4:**  
 Business owner - I want users to be abvle to access my site, I want it to have a simplistic look and feel to it.  
 
+
+| As a/an | I want my customers to be able to... | So that they can... |
+| ----------- | ----------- | ----------- |
+| Navigation  | 
+| Business owner | Navigate the sit easily using navbar | Move between different pages with ease | 
+| Business owner | View products availabe | Find out further information about and see further images of the listing | 
+| Business owner | View their order history | Plan my journey to the site from my location | 
+| Registration and User Accounts | 
+| Business owner | Easily register for an account | Have a personal account and be able to see their profile | 
+| Business owner | Easily login or logout | Access their personal info | 
+| Business owner | Easily access their user profile | Access their account quickly | 
+| Business owner | Have a personalised user profile | With their personal order history and be able to update their default delivery address | 
+| Purchasing and Checkout | 
+| Business owner | Add to basket and checkout without registering | Use the site less if they feel to | 
+| Business owner | Be able to see that their basket has items in from any page | So that they can keep track of their basket | 
+| Business owner | Receive prompts when items are added to their basket | immediately see if the products that they have purchased are in their basket | 
+| Business owner| Easily enter their payment information | Check out quickly with no hassles | 
+| Business owner | Recieve an email confirmation after checkout | Keep the information for their own records | 
+| Products Page | 
+| Business owner | Choose a location where embroidery is located | Have accuracy over where the customising is on their product | 
+| Business owner | Add customised text to the product they are purchasing | Easily purchase a customisable item | 
+| Business owner  | Select different sizes of products | purchase for a wider audience | 
+| Business owner  | Select different colours of products | purchase for a more reasons | 
+| Ratings & Reviews | 
+| Business owner  | add a Review | promote the site in a positive light | 
+| Business owner  | edit a Review  | In case they wish to edit a review | 
+| Business owner  | delete a review | In case they wish to edit a review | 
+
 ## Design  
 
 ### Colour Scheme
