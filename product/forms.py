@@ -10,6 +10,7 @@ class ReviewForm(forms.ModelForm):
     comment = forms.CharField(max_length=255, required=True, widget=forms.
                           Textarea(attrs={'placeholder': 'Enter your review'
                                           'here', 'rows': 4}, ))
+    rating = forms.IntegerField(required=True) 
 
     class Meta:
         model = Review

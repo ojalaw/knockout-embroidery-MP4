@@ -41,24 +41,25 @@ def add_review(request):
 def update_review(request, review_id):
     """ A view that handles updating user reviews """
     review = get_object_or_404(Review, pk=review_id)
-
-    if request.user != review.user:
-        return HttpResponseForbidden()
+    reviews = Review.objects.all()
 
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Your review has been updated!')
+            form.save()  
+            messages.success(request, 'Review updated!')
             return redirect('reviews')
         else:
-            messages.error(request, 'Error updating your review.')
-
-    else:
+            messages.error(request, 'Please add a star rating.')
+    else: 
         form = ReviewForm(instance=review)
-
-    return render(request, 'product/reviews.html', {'form': form,
-                                                        'review': review})
+        
+    context = {
+        'form': form,
+        'review': review,
+        'reviews': reviews
+    }
+    return render(request, 'product/reviews.html', context)
 
 
 @login_required
