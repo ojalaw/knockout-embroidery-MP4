@@ -79,6 +79,19 @@ Desktop lighthouse score [here](README-images/light-basket-desktop.png "Optional
 
 Mobile lighthouse score [here](README-images/light-basket-mobile.png "Optional title")  
 
+**Login Required pages**  
+
+**Profile**
+Desktop lighthouse score [here](README-images/light-profile-desktop.png "Optional title")  
+
+Mobile lighthouse score [here](README-images/light-profile-mobile.png "Optional title")  
+
+**Product Admin**  
+Desktop lighthouse score [here](README-images/light-product-admin-desktop.png "Optional title")  
+
+Mobile lighthouse score [here](README-images/light-product-admin-mobile.png "Optional title")  
+
+
 
 ## Browser Compatibility 
   
