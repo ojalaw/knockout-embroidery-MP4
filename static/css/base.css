@@ -816,13 +816,7 @@ input[name="default_county"] {
    margin-top: 1em; 
  }
 
- @media screen and (max-width: 1492px) {
-  .button-container {
-      display: flex;
-      flex-direction: column;
-      gap: 10px; 
-  }
-}
+
 
  @media (max-width: 1264px) {
   .navbar .nav-link {
