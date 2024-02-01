@@ -1,48 +1,41 @@
-function handleSpinners(input) {
-    var value = parseInt($(input).val());
-    
-    var minReached = value <= 1;
-  
-    $(input).closest('.input-group')
-             .find('.decrement-qty')
-             .prop('disabled', minReached);
-  
-  }
-  
-  // Increment quantity
-  $('.increment-qty').click(function(e) {
-    e.preventDefault();
-    
-    var input = $(this).closest('.input-group').find('.qty-input');
-    var value = parseInt($(input).val()); 
-    
-    $(input).val(value + 1);
-    
-    handleSpinners(input);
-  });
-  
-  // Decrement quantity 
-  $('.decrement-qty').click(function(e) {
-    e.preventDefault();
-  
-    var input = $(this).closest('.input-group').find('.qty-input');
-    var value = parseInt($(input).val());
-  
-    $(input).val(value - 1);
-    
-    handleSpinners(input);  
-  });
-  
-  
-  // Check on change as well
-  $('.qty_input').change(function() {  
-    handleSpinners(this);
-  });
+// Disable +/- buttons outside 1-99 range
+function handleEnableDisable(itemId) {
+  var currentValue = parseInt($(`#id_qty_${itemId}`).val());
+  var minusDisabled = currentValue < 2;
+  var plusDisabled = currentValue > 98;
+  $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+  $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+}
 
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.toast .close').forEach(function(closeButton) {
-        closeButton.addEventListener('click', function () {
-            this.closest('.toast').remove();
-        });
-    });
+// Ensure proper enabling/disabling of all inputs on page load
+var allQtyInputs = $('.qty_input');
+for(var i = 0; i < allQtyInputs.length; i++){
+  var itemId = $(allQtyInputs[i]).data('item_id');
+  handleEnableDisable(itemId);
+}
+
+// Check enable/disable every time the input is changed
+$('.qty_input').change(function() {
+  var itemId = $(this).data('item_id');
+  handleEnableDisable(itemId);
+});
+
+// Increment quantity
+$('.increment-qty').click(function(e) {
+ e.preventDefault();
+ var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+ var currentValue = parseInt($(closestInput).val());
+ $(closestInput).val(currentValue + 1);
+ var itemId = $(this).data('item_id');
+ handleEnableDisable(itemId);
+});
+
+// Decrement quantity
+$('.decrement-qty').click(function(e) {
+ e.preventDefault();
+ var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+ var currentValue = parseInt($(closestInput).val());
+ $(closestInput).val(currentValue - 1);
+ var itemId = $(this).data('item_id');
+ handleEnableDisable(itemId);
 });
