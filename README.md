@@ -89,12 +89,11 @@ The font used throughout the site is 'Roboto Mono', I have chosen this font beca
 
 ### Layout
 
-The layout of the Suport website is built using the Bootstrap framework, which provides a responsive grid system that allows the website to adapt to different screen sizes and devices. The use of a grid system helps to create a consistent layout on necessary pages of the website, which makes navigation and exploration more intuitive for visitors.  
+The layout of the Knockout Embroidery website is built using the Bootstrap framework, which provides a responsive grid system that allows the website to adapt to different screen sizes and devices. The use of a grid system helps to create a consistent layout on necessary pages of the website, which makes navigation and exploration more intuitive for visitors.  
 
 ### Accessibility  
 
-Image alt, aria labels, colour contrast.  
-**more content**
+I ran the site through a wave validator to ensure there were no accessibility errors. There are no contrast errors, all forms have labels or aria labels and images have alts.
  
 
 ### Imagery  
