@@ -189,7 +189,6 @@ I used the following break points for responsiveness.
 - 992px
 - 1090px
 - 1264px
-- 1492px
 
 Generic bootstrap breakpoints were also used throughout the site.  
 
