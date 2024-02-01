@@ -209,7 +209,6 @@ Throughout the development phase of the site, I came across a variety of differe
 
 - Sometimes on apple mobile devices, 'view text embroidery' modal cannot be closed and the page needs to be refreshed instead.
 - Stars display from right to left when viewed on reviews.html and when editing. This was not initally planned but still displays the correct rating.
-- Quantity buttons on product details page and basket do not seem to be working properly due to a minor change to the code that i cannot seem to debug. Users can still use input box to change quantity.
 
 
 
