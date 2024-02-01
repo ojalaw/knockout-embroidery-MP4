@@ -209,6 +209,7 @@ Throughout the development phase of the site, I came across a variety of differe
 
 - Sometimes on apple mobile devices, 'view text embroidery' modal cannot be closed and the page needs to be refreshed instead.
 - Stars display from right to left when viewed on reviews.html and when editing. This was not initally planned but still displays the correct rating.
+- Sometimes toast messages dont close using the 'x' close button. Worked ealier in the week but something causes an error, they are set to auto close.
 
 
 
